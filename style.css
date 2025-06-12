@@ -1,0 +1,147 @@
+
+
+/* ========================================== */
+/* VARIABLES */
+/* ============================================== */
+:root{
+    --palMain: #202040;
+    --palSecond: #543864;
+    --palThird: #FF6363;
+    --palHighlight: #FFBD69;
+    --border-left: 1%;
+}
+
+
+/* ============================= */
+/* DEFAULTS */
+/* =============================== */
+*{
+    /* ensure the padding and border are included in the 
+    width and height */ 
+    box-sizing: border-box;
+    /* removes the default margin and set margin to 0 */
+    margin: 0;
+    padding: 0;
+
+    /* sets default font family for all elements and default size for all font */
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: medium; 
+    border-color: var(--palThird);
+}
+
+body{
+    background-color: var(--palMain);
+}
+body.light-theme {
+    color: #000000;
+}
+body.dark-theme {
+    color: #f0f0f0;
+}
+
+header, footer{
+    background-color: var(--palSecond);
+    padding: 1rem;
+}
+
+h1{
+    color:var(--palThird);
+    font-size: xx-large;
+}
+
+/* Default Headers 2 */
+h2{
+    color: var(--palHighlight);
+    font-size: larger;
+}
+
+img{
+    width: 50px;
+}
+/* ========================== */
+/* WEBPAGE ELEMENTS */
+/* ----- */
+/* ----- */
+/* HEADER */
+/* =================================== */
+header nav{
+    /* makes this spefiic nav from a header parent */
+    display: flex;
+    /* wrap itms in smll screen */
+    flex-wrap: wrap;
+    justify-content: center;
+    float:center;
+}
+header nav a, #toggleThemeBtn, #lHeader, #rHeader{
+    cursor: pointer;
+    color: #dbdbdb;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    background-color: var(--palMain);
+    border: 2px solid var(--palHighlight);
+    font-size: 2rem;    
+}
+header a:hover{
+    transition: background 0.3s;
+    background-color: var(--palThird);
+}
+#lHeader{
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+    color: var(--palMain);
+}
+#rHeader{
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+    color: var(--palMain);
+}
+/* =========== */
+/* MAIN */
+/* ====== */
+main{
+    display: grid;
+    grid-template-columns: 1f;
+}
+
+/* CONTAINER BOX FOR ABOUT AND PROJECTS */
+.container{
+    background-color: var(--palSecond);
+    border-left: 5px solid var(--palThird);
+    text-align: center;
+    margin-top: 2%;
+    padding: 5%;
+}
+
+/* PROJECT GRID CONTAINER */
+#projGrid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2%;
+}
+
+/* BOTH COLUMNS DIRECTED TO BE A GRID ASWELL. (OR MIGHT USE FLEX AND DIRECT IT AS A COLUM) */
+#codeGrid, #gameGrid{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+#codeGrid h2, #gameGrid h2{
+    font-size: 2em;
+}
+/* THE BUTTON OF THE PROJECT (TO REVEAL MORE AND THEN ANOTHER BUTTON WILL APPEAR TO REDIRECT USER */
+.card{
+    padding: 2rem;
+    border-radius: 5%;
+    background-color: var(--palMain);
+    color: var(--palHighlight);
+    box-shadow: 0 2px 5px var(--palHighlight);
+    margin-top: 5%;
+    cursor: pointer;
+}
+/* Button Title */
+.card h1{
+    background-color: var(--palSecond);
+    display: inline-flex;
+    justify-content:left;
+}
