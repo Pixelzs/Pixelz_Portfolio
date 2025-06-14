@@ -108,16 +108,16 @@ document.addEventListener('DOMContentLoaded', () =>{
     })
 
     document.body.addEventListener('click', () => {
-        codeGridEl.classList.remove("left-mode");
         codeGridEl.classList.remove("right-mode");
-        gameGridEl.classList.remove("left-mode");
         gameGridEl.classList.remove("right-mode");
-        homeEle.classList.remove("left-mode");
         homeEle.classList.remove("right-mode");
-        containerEl.classList.remove("left-mode");
         containerEl.classList.remove("right-mode");
-        projEL.classList.remove("left-mode");
         projEL.classList.remove("right-mode");
+        codeGridEl.classList.remove("left-mode");
+        gameGridEl.classList.remove("left-mode");
+        homeEle.classList.remove("left-mode");
+        containerEl.classList.remove("left-mode");
+        projEL.classList.remove("left-mode")
 
         homeEle.classList.remove("openAb");
         homeEle.firstElementChild.classList.remove("openAb");

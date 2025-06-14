@@ -114,7 +114,7 @@ header a:hover{
 main{
     display: grid;
     grid-template-columns: 1f;
-    transition: all 0.5s ease;
+
 }
 
 /* CONTAINER BOX FOR ABOUT AND PROJECTS */
@@ -123,15 +123,28 @@ main{
     border-left: 5px solid var(--palThird);
     text-align: center;
     margin-top: 2%;
-    padding: 5%;
-    transition: all 0.5s ease;
+    padding: 1vw;
+    transition: all 0.4s ease;
+
 }
+
+
+#projHighlight{
+    clip-path: polygon(0% 0%, 0% 50%, 0% 100%, 50% 100%, 100% 100%, 100% 0%, 50% 0%);
+            /* L  polygon(0% 0%, 0% 50%, 0% 100%, 50% 100%, 100% 100%, 100% 5%, 50% 5%);
+               R  polygon(0% 5%, 0% 50%, 0% 100%, 50% 100%, 100% 1000%, 100% 0%, 50% 5%); */
+    padding-top: 0;
+    transform: translateY(0px);
+}
+
+
 
 
 #home{
     clip-path: polygon(0 0, 45% 100%, 55% 100%, 100% 0%);
     overflow: hidden;
-    transition: all 0.5s ease;
+    
+
 }
 #about p{
     display: none;
@@ -146,39 +159,38 @@ main{
 
 
 .openAb#home{
-    clip-path: polygon(0 0, 0 100, 100% 100%, 100% 0%);
+    clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 0%);
     overflow: hidden;
 }
+
+
+.openAb#about{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .openAb#about p{
     display:inline;
+    font-size: 2rem;
 }
 
 
-.left-mode#home{
-    clip-path: polygon(0px 0px, 0% 75%, 75% 100%, 100% 100%, 100% 0%);
-    overflow: hidden;
-    height: 500px;
-    text-align: right;
-    transition: all 0.5s ease;
-}
 
-.right-mode#home{
-    clip-path: polygon(0px 0px, 0% 100%, 25% 100%, 100% 0%);
-    overflow: hidden;
-    height: 500px;
-    text-align: left;
-    transition: all 0.5s ease;
-}
+
+
 
 /* okay need a toggle for container to switch states - none, left - right. speficically for project corner */
 
+
+/* ---- NORMAL ---- */
 
 /* PROJECT GRID CONTAINER */
 #projGrid{
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 5%;
-    transition: all 0.5s ease;
+
 }
 
 /* BOTH COLUMNS DIRECTED TO BE A GRID ASWELL. (OR MIGHT USE FLEX AND DIRECT IT AS A COLUM) */
@@ -186,7 +198,7 @@ main{
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    transition: all 0.5s ease;
+    align-items:center;
 }
 
 #codeGrid h2, #gameGrid h2{
@@ -195,7 +207,7 @@ main{
 /* THE BUTTON OF THE PROJECT (TO REVEAL MORE AND THEN ANOTHER BUTTON WILL APPEAR TO REDIRECT USER */
 .card{
     overflow: hidden;
-    max-height: 400px;
+    max-height: 260px;
     padding: 2rem;
     border-radius: 5%;
     background-color: var(--palMain);
@@ -203,6 +215,8 @@ main{
     box-shadow: 0 2px 5px var(--palHighlight);
     margin-top: 5%;
     cursor: pointer;
+    width: 35vw;
+    transition: all 0.4s ease;
 }
 /* Button Title */
 .card h1{
@@ -210,8 +224,9 @@ main{
     position: absolute;
 }
 
+
 .card img{
-    width:500px;
+    width:250px;
 }
 
 #codeGrid button, #gameGrid button{
@@ -220,30 +235,42 @@ main{
 
 
 
-/* ----------------------- */
+/* ----------LEFT------------- */
+
+.left-mode#home{
+    clip-path: polygon(0% 0%, 75% 100%, 100% 100%, 100% 0%);
+    height: 250px;
+    text-align: right;
+}
+
+.left-mode#home img{
+    width: 100px;
+}
 
 
 /* PROJECT GRID CONTAINER */
 .left-mode#projGrid{
-    grid-template-columns: 3fr 1fr;
+    grid-template-columns: 2fr 1fr;
+    gap: 2%;
 }
 
-
 /* THE BUTTON OF THE PROJECT (TO REVEAL MORE AND THEN ANOTHER BUTTON WILL APPEAR TO REDIRECT USER */
+
+
 .left-mode#codeGrid .card, .left-mode#codeGrid button{
     display: flex;
-    padding: 4rem;
-    border-radius: 1rem;
+    padding: 2rem;
+    border-radius: 2rem;
     background-color: var(--palHighlight);
     color: var(--palMain);
-    box-shadow: 0 2px 5px var(--palThird);
-    margin-top: 5%;
+    box-shadow: 0 4px 10px var(--palThird);
+    margin-top: 10%;
     border: 4px solid var(--palMain);
     gap: 2em;
 }
 
 .left-mode#codeGrid .card{
-    width: 50vw;
+    width: 55vw;
     max-height: 800px;
     overflow: auto;
     scroll-behavior: smooth;
@@ -254,7 +281,7 @@ main{
     color: var(--palHighlight);
     background-color: var(--palThird);
     justify-self:left;
-    align-self:flex-end;
+    align-self:flex-start;
     position: absolute;
 }
 
@@ -264,84 +291,90 @@ main{
 }
 
 .left-mode#codeGrid button{
-    margin: 1%;
-    padding: 1rem;
+    margin: 1rem;
+    padding: 2rem;
+    justify-self: left;
 }
+
 
 /* BOTH COLUMNS DIRECTED TO BE A GRID ASWELL. (OR MIGHT USE FLEX AND DIRECT IT AS A COLUM) */
 .left-mode#gameGrid{
-    gap: 1rem;
-    padding-left: 4rem;
+    gap: 15rem;
+    border-left: 32px solid var(--palThird);
 }
 
-.left-mode#gameGrid h2{
-    font-size: 2em;
-}
+
 /* THE BUTTON OF THE PROJECT (TO REVEAL MORE AND THEN ANOTHER BUTTON WILL APPEAR TO REDIRECT USER */
 .left-mode#gameGrid .card{
-    padding: 2rem;
+    display: flex;
+    overflow: hidden;
     border-radius: 2rem;
     background-color: var(--palMain);
     color: var(--palHighlight);
     box-shadow: 0 2px 5px var(--palHighlight);
-    margin-top: 5%;
     cursor: pointer;
-    width: 15vw;
+    width: 25vw;
+    padding: 5%;
 }
 /* Button Title */
 .left-mode#gameGrid .card h1{
     background-color: var(--palSecond);
-    display: inline-flex;
-    justify-content:left;
-    font-size: small;
+    font-size: 2rem;
 }
 
 .left-mode#gameGrid .card p{
     display: none;
 }
+.left-mode#gameGrid .card img{
+    width: 25vw;
+}
 
 .left-mode#projHighlight{
-    clip-path: polygon(0% 0%, 0% 25%, 0% 100%, 100% 100%, 100% 5%, 75% 5%);
+    clip-path: polygon(0% 0%, 0% 50%, 0% 100%, 50% 100%, 100% 100%, 100% 5%, 50% 5%);
     padding-top: 8rem;
     transform: translateY(-120px);
 }
 
+
+
 /* ------------------- RIGHT  ----------------- */
 
-/* PROJECT GRID CONTAINER */
-.right-mode#projGrid{
-    grid-template-columns: 1fr 3fr;
-}
 
-
-/* BOTH COLUMNS DIRECTED TO BE A GRID ASWELL. (OR MIGHT USE FLEX AND DIRECT IT AS A COLUM) */
-.right-mode#codeGrid, .right-mode#gameGrid{
-    display: flex;
-    flex-direction: column;
-    gap: 4rem;
+.right-mode#home{
+    clip-path: polygon(0px 0px, 0% 100%, 25% 100%, 100% 0%);
     overflow: hidden;
-}
-.right-mode#gameGrid h2{
-    font-size: 3em;
+    height: 250px;
+    text-align: left;
+    font-size: small;
 }
 
-.right-mode#gameGrid{
-    border-left: 40px solid var(--palThird);
+.right-mode#home img{
+    width: 100px;
+}
+
+
+/* PROJECT GRID CONTAINER */
+
+.right-mode#projGrid{
+    grid-template-columns: 1fr 2fr;
+    gap: 2%;
 }
 
 /* THE BUTTON OF THE PROJECT (TO REVEAL MORE AND THEN ANOTHER BUTTON WILL APPEAR TO REDIRECT USER */
 .right-mode#gameGrid .card, .right-mode#gameGrid button{
     display: flex;
-    padding: 4rem;
-    border-radius: 1rem;
+    padding: 2rem;
+    border-radius: 2rem;
     background-color: var(--palHighlight);
     color: var(--palMain);
-    box-shadow: 0 2px 5px var(--palThird);
-    margin-top: 5%;
+    box-shadow: 0 4px 10px var(--palThird);
+    margin-top: 10%;
     border: 4px solid var(--palMain);
     gap: 2em;
 }
+
 .right-mode#gameGrid .card{
+    width: 55vw;
     max-height: 800px;
     overflow: auto;
     scroll-behavior: smooth;
@@ -351,25 +384,26 @@ main{
 .right-mode#gameGrid .card h1{
     color: var(--palHighlight);
     background-color: var(--palThird);
-    justify-self:right;
+    justify-self:left;
     align-self:flex-start;
     position: absolute;
 }
 
 .right-mode#gameGrid .card img{
-    justify-self: left;
+    justify-self: right;
     width: 500px;
 }
 
 .right-mode#gameGrid button{
-    margin: 1%;
-    padding: 1rem;
+    margin: 1rem;
+    padding: 2rem;
+    justify-self: left;
 }
 
 /* BOTH COLUMNS DIRECTED TO BE A GRID ASWELL. (OR MIGHT USE FLEX AND DIRECT IT AS A COLUM) */
 .right-mode#codeGrid{
-    gap: 1rem;
-    padding-left: 4rem;
+    gap: 15rem;
+    border-right: 32px solid var(--palThird)
 }
 
 .right-mode#codeGrid h2{
@@ -377,32 +411,30 @@ main{
 }
 /* THE BUTTON OF THE PROJECT (TO REVEAL MORE AND THEN ANOTHER BUTTON WILL APPEAR TO REDIRECT USER */
 .right-mode#codeGrid .card{
-    padding: 2rem;
+    display: flex;
+    overflow: hidden;
     border-radius: 2rem;
     background-color: var(--palMain);
     color: var(--palHighlight);
     box-shadow: 0 2px 5px var(--palHighlight);
-    margin-top: 5%;
     cursor: pointer;
-    overflow: hidden;
-    max-height: 400px;
+    width: 25vw;
+    padding: 5%;
 }
 /* Button Title */
 .right-mode#codeGrid .card h1{
     background-color: var(--palSecond);
-    display: inline-flex;
-    justify-content:left;
-    font-size: small;
+    font-size: 2rem;
 }
 
 .right-mode#codeGrid .card p{
     display: none;
 }
 
+
 .right-mode#projHighlight{
-    clip-path: polygon(0% 5%, 0% 100%, 100% 100%, 100% 0%, 25% 5%);
+    clip-path: polygon(0% 5%, 0% 50%, 0% 100%, 50% 100%, 100% 1000%, 100% 0%, 50% 5%);
     padding-top: 8rem;
     transform: translateY(-120px);
 }
-
 
