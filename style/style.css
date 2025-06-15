@@ -8,7 +8,9 @@
     --palSecond: #543864;
     --palThird: #FF6363;
     --palHighlight: #FFBD69;
-    --border-left: 1%;
+    --palborderradius: 2rem;
+    --palpadding: 1rem;
+    --paltransition: all 0.4s ease;
 }
 
 
@@ -30,6 +32,10 @@
     font-style: normal;
     font-size: medium; 
     border-color: var(--palThird);
+}
+
+html, body{
+    overflow-x: hidden;
 }
 
 body{
@@ -61,7 +67,6 @@ h2{
 
 img{
     width: 20rem;
-    filter: blur(12%);
 }
 
 button{
@@ -83,7 +88,6 @@ header nav{
     /* wrap itms in smll screen */
     flex-wrap: wrap;
     justify-content: center;
-    float:center;
 }
 header nav a, #toggleThemeBtn, #lHeader, #rHeader{
     cursor: pointer;
@@ -92,7 +96,8 @@ header nav a, #toggleThemeBtn, #lHeader, #rHeader{
     padding: 0.5rem 1rem;
     background-color: var(--palMain);
     border: 2px solid var(--palHighlight);
-    font-size: 2rem;    
+    font-size: 2rem;
+    border-radius: 0;    
 }
 header a:hover{
     transition: background 0.3s;
@@ -114,7 +119,6 @@ header a:hover{
 main{
     display: grid;
     grid-template-columns: 1f;
-
 }
 
 /* CONTAINER BOX FOR ABOUT AND PROJECTS */
@@ -180,13 +184,7 @@ main{
     font-size: 2rem;
 }
 
-
-
-
-
-
 /* okay need a toggle for container to switch states - none, left - right. speficically for project corner */
-
 
 /* ---- NORMAL ---- */
 
@@ -276,7 +274,8 @@ main{
 }
 
 .left-mode#codeGrid .card{
-    width: 55vw;
+    width: 100%;
+    max-width: 60vw;
     max-height: 800px;
     overflow: auto;
     scroll-behavior: smooth;
@@ -381,7 +380,8 @@ main{
 }
 
 .right-mode#gameGrid .card{
-    width: 55vw;
+    width: 100%;
+    max-width: 60vw;
     max-height: 800px;
     overflow: auto;
     scroll-behavior: smooth;
