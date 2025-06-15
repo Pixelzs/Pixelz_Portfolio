@@ -218,7 +218,8 @@ main{
     box-shadow: 0 2px 5px var(--palHighlight);
     margin-top: 5%;
     cursor: pointer;
-    width: 35vw;
+    width: 100%;
+    max-width: 90vw;
     transition: all 0.4s ease;
 }
 /* Button Title */
@@ -540,7 +541,8 @@ main{
 
 
     .left-mode#codeGrid .card, .right-mode#codeGrid .card, .left-mode#gameGrid .card, .right-mode#gameGrid .card{
-        width: 90vw;
+        width: 100%;
+        max-width: 90vw;
         height: 400px;
     }
 
