@@ -10,7 +10,6 @@
     --palHighlight: #FFBD69;
     --palborderradius: 2rem;
     --palpadding: 1rem;
-    --paltransition: all 0.4s ease;
 }
 
 
@@ -129,7 +128,6 @@ main{
     margin-top: 2%;
     padding: 1vw;
     transition: all 0.4s ease;
-
 }
 
 
@@ -193,7 +191,6 @@ main{
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 5%;
-
 }
 
 /* BOTH COLUMNS DIRECTED TO BE A GRID ASWELL. (OR MIGHT USE FLEX AND DIRECT IT AS A COLUM) */
@@ -220,14 +217,13 @@ main{
     cursor: pointer;
     width: 100%;
     max-width: 90vw;
-    transition: all 0.4s ease;
+    transition: transform 0.4s;
 }
 /* Button Title */
 .card h1{
     background-color: var(--palSecond);
     position: absolute;
 }
-
 
 .card img{
     width:250px;
@@ -236,8 +232,6 @@ main{
 #codeGrid button, #gameGrid button{
     display: none;
 }
-
-
 
 /* ----------LEFT------------- */
 
@@ -275,6 +269,7 @@ main{
 }
 
 .left-mode#codeGrid .card{
+    transform: scale(1.05);
     width: 100%;
     max-width: 60vw;
     max-height: 800px;
@@ -381,6 +376,7 @@ main{
 }
 
 .right-mode#gameGrid .card{
+    transform: scale(1.05);
     width: 100%;
     max-width: 60vw;
     max-height: 800px;
@@ -507,6 +503,12 @@ main{
         font-size: 20px;    
     }
 
+    .container{
+        width: 100%;
+        max-width: 100vw;
+        box-sizing: border-box;
+        padding: 0.1rem;
+    }
     #aboutBut{
         width: 1px;
     }
@@ -566,17 +568,22 @@ main{
         transform: translateY(-150px);
         padding-top: 12rem;
     }
-
-
-
     .right-mode#projGrid, .left-mode#projGrid{
         grid-template-columns: 1fr;
-        gap: 2%;
+        gap: 1rem;
+        width: 100%;
+        max-width: 100vw;
     }
     .right-mode#gameGrid{
         order: 1;
     }
     .right-mode#codeGrid{
         order: 2;
+        border-right: 0.5rem solid var(--palThird);
     }
+
+    .left-mode#gameGrid{
+        border-left: 0.5rem solid var(--palThird);
+    }
+
 }
