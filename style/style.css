@@ -230,9 +230,10 @@ main::before{
 }
 /* THE BUTTON OF THE PROJECT (TO REVEAL MORE AND THEN ANOTHER BUTTON WILL APPEAR TO REDIRECT USER */
 .card{
+    position: relative;
     overflow: hidden;
     max-height: 260px;
-    padding: 2rem;
+    padding: 1rem;
     border-radius: 5%;
     background-color: var(--palMain);
     color: var(--palHighlight);
@@ -243,6 +244,24 @@ main::before{
     max-width: 90vw;
     transition: transform 0.4s;
 }
+
+.card:hover{
+    transform: scale(1.05);
+}
+
+.card:active{
+    transform: scale(1.3);
+}
+
+
+.card .cardImg{
+    display: block;
+}
+
+.card .items{
+    display: none;
+}
+
 /* Button Title */
 .card h1{
     background-color: var(--palSecond);
@@ -250,13 +269,26 @@ main::before{
 }
 
 .card img{
-    width:250px;
+    width:350px;
+    border-radius: 5%;
 }
 
-#codeGrid button, #gameGrid button{
-    display: none;
+.card + button{
+    margin: 1rem auto 0 auto;
+    transform: translateY(-40px);
+    opacity: 0;
+    transition: transform 0.4s cubic-bezier(.68,-0.55,.27,1.55), opacity 0.3s;
+    pointer-events: none;
 }
 
+
+.card + button:hover{
+    background-color: var(--palHighlight);
+    color: var(--palMain);
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+}
 /* ----------LEFT------------- */
 
 .left-mode#home{
@@ -279,8 +311,7 @@ main::before{
 
 /* THE BUTTON OF THE PROJECT (TO REVEAL MORE AND THEN ANOTHER BUTTON WILL APPEAR TO REDIRECT USER */
 
-
-.left-mode#codeGrid .card, .left-mode#codeGrid button{
+.card.selected{
     display: flex;
     padding: 2rem;
     border-radius: 2rem;
@@ -290,10 +321,8 @@ main::before{
     margin-top: 10%;
     border: 4px solid var(--palMain);
     gap: 2em;
-}
 
-.left-mode#codeGrid .card{
-    transform: scale(1.05);
+    transform: scale(1.0);
     width: 100%;
     max-width: 60vw;
     max-height: 800px;
@@ -301,8 +330,9 @@ main::before{
     scroll-behavior: smooth;
 }
 
+
 /* Button Title */
-.left-mode#codeGrid .card h1{
+.card.selected h1{
     color: var(--palHighlight);
     background-color: var(--palThird);
     justify-self:left;
@@ -310,15 +340,28 @@ main::before{
     position: absolute;
 }
 
-.left-mode#codeGrid .card img{
+.card.selected img{
     justify-self: right;
     width: 500px;
 }
 
-.left-mode#codeGrid button{
+
+.card.selected .cardImg{
+    display: none;
+}
+
+.card.selected .items{
+    display: inline;
+}
+
+.card.selected + button{
     margin: 1rem;
     padding: 2rem;
     justify-self: left;
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+    cursor: pointer;
 }
 
 
@@ -330,26 +373,14 @@ main::before{
 
 
 /* THE BUTTON OF THE PROJECT (TO REVEAL MORE AND THEN ANOTHER BUTTON WILL APPEAR TO REDIRECT USER */
-.left-mode#gameGrid .card{
-    display: flex;
-    overflow: hidden;
-    border-radius: 2rem;
-    background-color: var(--palMain);
-    color: var(--palHighlight);
-    box-shadow: 0 2px 5px var(--palHighlight);
-    cursor: pointer;
-    width: 25vw;
-    padding: 5%;
-}
+
 /* Button Title */
 .left-mode#gameGrid .card h1{
     background-color: var(--palSecond);
     font-size: 2rem;
 }
 
-.left-mode#gameGrid .card p{
-    display: none;
-}
+
 .left-mode#gameGrid .card img{
     width: 25vw;
 }
@@ -384,48 +415,6 @@ main::before{
 .right-mode#projGrid{
     grid-template-columns: 1fr 2fr;
     gap: 2%;
-}
-
-/* THE BUTTON OF THE PROJECT (TO REVEAL MORE AND THEN ANOTHER BUTTON WILL APPEAR TO REDIRECT USER */
-.right-mode#gameGrid .card, .right-mode#gameGrid button{
-    display: flex;
-    padding: 2rem;
-    border-radius: 2rem;
-    background-color: var(--palHighlight);
-    color: var(--palMain);
-    box-shadow: 0 4px 10px var(--palThird);
-    margin-top: 10%;
-    border: 4px solid var(--palMain);
-    gap: 2em;
-}
-
-.right-mode#gameGrid .card{
-    transform: scale(1.05);
-    width: 100%;
-    max-width: 60vw;
-    max-height: 800px;
-    overflow: auto;
-    scroll-behavior: smooth;
-}
-
-/* Button Title */
-.right-mode#gameGrid .card h1{
-    color: var(--palHighlight);
-    background-color: var(--palThird);
-    justify-self:left;
-    align-self:flex-start;
-    position: absolute;
-}
-
-.right-mode#gameGrid .card img{
-    justify-self: right;
-    width: 500px;
-}
-
-.right-mode#gameGrid button{
-    margin: 1rem;
-    padding: 2rem;
-    justify-self: left;
 }
 
 /* BOTH COLUMNS DIRECTED TO BE A GRID ASWELL. (OR MIGHT USE FLEX AND DIRECT IT AS A COLUM) */
@@ -548,17 +537,14 @@ main::before{
     .right-mode#home, .left-mode#home{
         height: 250px;
     }
-    #codeGrid .card, #gameGrid .card{
+
+    .card{
         padding: 1%;
         height: 150px;
     }
 
-    #codeGrid .card img, #gameGrid .card img{
+    .card img{
         width: 150px;
-    }
-    
-    #codeGrid .card p, #gameGrid .card p{
-        display: none;
     }
 
     #codeGrid h2, #gameGrid h2{
