@@ -48,78 +48,61 @@ document.addEventListener('DOMContentLoaded', applyStoredTheme);
 document.addEventListener('DOMContentLoaded', () =>{
 
 
+    function removeAllClasses(element, classes) {
+        element.forEach(elem => classes.forEach(cls => {elem.classList.remove(cls)}));
+    }
+    function addClasses(element, classes) {
+        element.forEach(elem => classes.forEach(cls => {elem.classList.add(cls)}));
+    }
+
+    //Elements
+    const elements = [
+        codeGridEl,
+        gameGridEl,
+        homeEle,
+        containerEl,
+        projEL
+    ];
+    const modeClasses = ["right-mode", "left-mode"];
+    const aboutClasses = ["openAb"];
+
     aboutBut.addEventListener('click', (e) => {
         e.stopPropagation();
-
-        codeGridEl.classList.remove("right-mode");
-        gameGridEl.classList.remove("right-mode");
-        homeEle.classList.remove("right-mode");
-        containerEl.classList.remove("right-mode");
-        projEL.classList.remove("right-mode");
-        codeGridEl.classList.remove("left-mode");
-        gameGridEl.classList.remove("left-mode");
-        homeEle.classList.remove("left-mode");
-        containerEl.classList.remove("left-mode");
-        projEL.classList.remove("left-mode")
-
-        homeEle.classList.add("openAb");
-        homeEle.firstElementChild.classList.add("openAb");
-
-
+        removeAllClasses(elements, modeClasses);
+        addClasses([homeEle,homeEle.firstElementChild], aboutClasses);
     });
 
 
     codeGridEl.addEventListener('click', (e) => {
         e.stopPropagation();
-
-        homeEle.classList.remove("openAb");
-        homeEle.firstElementChild.classList.remove("openAb");
-        
-        codeGridEl.classList.remove("right-mode");
-        gameGridEl.classList.remove("right-mode");
-        homeEle.classList.remove("right-mode");
-        containerEl.classList.remove("right-mode");
-        projEL.classList.remove("right-mode");
-
-        codeGridEl.classList.add("left-mode");
-        gameGridEl.classList.add("left-mode")
-        homeEle.classList.add("left-mode");
-        containerEl.classList.add("left-mode");
-        projEL.classList.add("left-mode");
+        // Remove the openAb class from homeEle and its first child
+        removeAllClasses([homeEle, homeEle.firstElementChild], aboutClasses);
+        removeAllClasses(elements, ["right-mode"]);
+        addClasses([codeGridEl, gameGridEl, homeEle, containerEl, projEL], ["left-mode"]);
     })
 
     gameGridEl.addEventListener('click', (e) => {
         e.stopPropagation();
-        homeEle.classList.remove("openAb");
-        homeEle.firstElementChild.classList.remove("openAb");
-
-        codeGridEl.classList.remove("left-mode");
-        gameGridEl.classList.remove("left-mode");
-        homeEle.classList.remove("left-mode");
-        containerEl.classList.remove("left-mode");
-        projEL.classList.remove("left-mode");
-
-
-        gameGridEl.classList.add("right-mode");
-        codeGridEl.classList.add("right-mode");
-        homeEle.classList.add("right-mode");
-        containerEl.classList.add("right-mode");
-        projEL.classList.add("right-mode");
+        removeAllClasses([homeEle, homeEle.firstElementChild], aboutClasses);
+        removeAllClasses(elements, ["left-mode"]);
+        addClasses([codeGridEl, gameGridEl, homeEle, containerEl, projEL], ["right-mode"]);
     })
 
     document.body.addEventListener('click', () => {
-        codeGridEl.classList.remove("right-mode");
-        gameGridEl.classList.remove("right-mode");
-        homeEle.classList.remove("right-mode");
-        containerEl.classList.remove("right-mode");
-        projEL.classList.remove("right-mode");
-        codeGridEl.classList.remove("left-mode");
-        gameGridEl.classList.remove("left-mode");
-        homeEle.classList.remove("left-mode");
-        containerEl.classList.remove("left-mode");
-        projEL.classList.remove("left-mode")
-
-        homeEle.classList.remove("openAb");
-        homeEle.firstElementChild.classList.remove("openAb");
+        removeAllClasses(elements, ["right-mode"]);
+        removeAllClasses(elements, ["left-mode"]);
+        removeAllClasses([homeEle, homeEle.firstElementChild], aboutClasses);
     })
+
+
+    function scrollToSelected(event) {
+        if(event.target.tagName !== 'H2') {
+            event.stopPropagation();
+            event.target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    }
+
+    codeGridEl.addEventListener('click', scrollToSelected);
+
+    gameGridEl.addEventListener('click', scrollToSelected);
 })
