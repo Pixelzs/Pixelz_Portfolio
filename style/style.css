@@ -214,6 +214,7 @@ main::before{
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 5%;
+    transition: all 0.4s ease;
 }
 
 /* BOTH COLUMNS DIRECTED TO BE A GRID ASWELL. (OR MIGHT USE FLEX AND DIRECT IT AS A COLUM) */
@@ -243,6 +244,7 @@ main::before{
     width: 100%;
     max-width: 90vw;
     transition: transform 0.4s;
+    
 }
 
 .card:hover{

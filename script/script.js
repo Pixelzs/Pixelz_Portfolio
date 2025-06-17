@@ -5,6 +5,7 @@ const codeGridEl = document.getElementById("codeGrid");
 const gameGridEl = document.getElementById("gameGrid");
 const homeEle = document.getElementById("home");
 const aboutBut = document.getElementById("aboutBut");
+const viewprojBut = document.querySelector(".viewProjectBtn");
 
 
 function applyStoredTheme(){
@@ -98,5 +99,10 @@ document.addEventListener('DOMContentLoaded', () =>{
     document.body.addEventListener('click', () => {
         removeAllClasses(elements, modeClasses);
         document.querySelectorAll('.card').forEach(c => c.classList.remove('selected'));
+    });
+
+
+    viewprojBut.addEventListener('click', (e) => {
+        window.location.href = "./project.html?id=1";
     });
 });
