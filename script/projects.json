@@ -1,8 +1,32 @@
 {
     "codeproj":[{
         "id": 1,
-        "title": "Code Project 1",
-        "description": "Description for code project 1"
+        "date": "5th August - 25th October 2024",
+        "title": "Samsara - INFINITY27",
+        "description": "Level Designer Unreal 5",
+        "about": "This is a code project that showcases various programming skills and techniques.",
+        "images":{
+            "intro": [
+                "./style/assets/stonework2.PNG",
+                "./style/assets/stonework2.PNG",
+                "./style/assets/stonework2.PNG"
+            ],
+            "slice": [
+                "./style/assets/stonework2.PNG",
+                "./style/assets/stonework2.PNG",
+                "./style/assets/stonework2.PNG"
+            ],
+            "prelan": [
+                "./style/assets/stonework2.PNG",
+                "./style/assets/stonework2.PNG",
+                "./style/assets/stonework2.PNG"
+            ],
+            "optional": [
+                "./style/assets/stonework2.PNG",
+                "./style/assets/stonework2.PNG",
+                "./style/assets/stonework2.PNG"
+            ]
+        }
     },
     {
         "id": 2,

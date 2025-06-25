@@ -5,7 +5,7 @@ const codeGridEl = document.getElementById("codeGrid");
 const gameGridEl = document.getElementById("gameGrid");
 const homeEle = document.getElementById("home");
 const aboutBut = document.getElementById("aboutBut");
-const viewprojBut = document.querySelector(".viewProjectBtn");
+const viewprojBut = document.querySelectorAll(".viewProjectBtn");
 
 
 function applyStoredTheme(){
@@ -83,6 +83,18 @@ document.addEventListener('DOMContentLoaded', () =>{
             removeAllClasses(elements, modeClasses);
             addClasses(elements, [modeClass]);
             e.currentTarget.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+
+            console.log("Hello from codeGrid");
+            viewprojBut.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const projId = button.getAttribute('dataID');
+                    if(projId){
+                        window.location.href = `./project.html?id=${projId}`;
+                    }
+                });
+            });
         };
     }
 
@@ -102,7 +114,5 @@ document.addEventListener('DOMContentLoaded', () =>{
     });
 
 
-    viewprojBut.addEventListener('click', (e) => {
-        window.location.href = "./project.html?id=1";
-    });
+    
 });
