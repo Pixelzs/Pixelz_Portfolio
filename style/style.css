@@ -133,7 +133,7 @@ main::before{
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: 0;
+    z-index: -1;
     background-image: url(./assets/HighresScreenshot00057.png);
     background-size: cover;
     background-position: center;

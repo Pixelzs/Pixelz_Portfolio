@@ -4,7 +4,13 @@
         "date": "5th August - 25th October 2024",
         "title": "Samsara - INFINITY27",
         "description": "Level Designer Unreal 5",
-        "about": "This is a code project that showcases various programming skills and techniques.",
+        "about":{
+            "intro": "Samsara - Level Design",
+            "para": "In this portfolio, I'll be showing my contribution to the game Samsara by INFINITY27. Samsara is designed to be a darksouls like game, set in a Buddhist dream state, where you have to travel the path to reach the afterlife.  On the path, it'll be challenging as different avatars of your mind will interfere with your journey or requesting aid that may affect your afterlife outcome. For the levels I worked on, the goal is to keep it compact for interconnectivity, while being explorable for the player to find new weapons/items. Additionally giving vista sightlines and to be easy navigable. To do this, our team used INFINITY27's pipeline called Level of Fidelity 0-3.  Each stage had a requirement to meet, and only if that requirement is met, we move onto the next stage.  We also used the Level Designer Book (https://book.leveldesignbook.com/) LOF0(short for Level of Fidelity 0) is about the pre-production work and concept of the level, whats the level? What mechanics does it bring?  And does it link to the game pillars? Also its where sketches of the level are made, from partimaps, bubblemaps to detailed sketches.  Addtionally, its also when we whitebox, to visually see the sketch work in level, and to find the scale we intended. LOF1 is about implementation in engine, INFINITY27 had a blockout tool, which made it easier in unifying the metrics to metres,  as the games mechanics has the player be able to climb surfaces in metres. LOF2 is about art implementation, I and cowokers leave this to the art team, meaning I had to document my work for them to understand what I was intending for in each level. LOF1 was the target to reach for each level and we managed to meet that target in 3 months. ",
+            "para2": "Viratdeha - Glacial Garta Lohita & Simha Valley. For this level, I couldn't retrieve work for screenshots, but able to show shots of it in LOF2.. Here is the major points.. Viratdeha is the frozen themed level. This was the first task when joining INFINITY27, the concept and blockout was primarly existing, but needed additional rework and different design approach.. The level was broken into zones, I worked on Glacial Garta Lohita & Simha Valley. . For Glacial Garta, originally, it was a path around a frozen lake to a cave then entering to the blizzard area. Issues I heard were it was too empty and was lacking, due to its size and long distances to travel vertically and horizontally.. Set out a goal to rework that path for a more compact design, with short but intriguing paths, and overall path have vista shots showing the level behind and whats ahead.. Simha Valley, the orignial design was kept, . I simply added the required mechanics but I made a shortcut to help players reach the next zone after moving through the blizzard.",
+            "para3":"Aparagodaniya - Aparādhī Quarry, Golden Shilpin, Lomasha Lush Cave & Kala's End.​Next, we started on Aparagodaniya, which was a desert theme level with ruin and set in a sinkhole. With the concept work already made, I and others had to digest what the vision was for the level.We divided the level into zones, 2 for each 3 of us, and we began using the level designer book, (https://book.leveldesignbook.com/), which greatly helped us in the structure of level designing while using INFINITY27's pipeline. Due to my zone size in the concept and time they estimate it would take, I wanted to add subzones to diverse the area, which was more evident after we put the concept in engine.I decided to make 3 zones in my zone, code name stoneworks, lushcave and town. This was made due to the concept map referencing a masonry with town in the zone I was contributing to. At the end, I felt this was a mistake as it did not align with the core story of this being a dreamworld, not a place were people live and are alive, as new comers to the game will mistakenly see it as suchShown in concepts sectionWe referenced the scale by the major icon the game uses, a tree that is viewable like the tree in Elden ring, and for context, the concept had the landscape spiral down around the tree, but the radius needed to be large to not notice lower quality of textures upclose to the tree, nor have the leaves interfere the path. Because of this, we had more space than the player ever needed, and that spiral prohibeted our goal of interconnection, as we were spread out, not compacted.We came to a conclusion to cut the sprial aspect of the level, and began to reorganise the level, not only to resolve some miscommunications that lead to out of date information, but also for my team to conceptualise a clearer vision for the level that's plausible in engine and connects to the games pillars i.e this is a dream, no one lives where.We created mood boards for each zone and subzones, we set out the overall player experience to be. Parelle to this, we started to white box the level to get the scale we aimed for. We did the same for Uttarakuru, that was much easier since we managed to directly make it more compacted earlier.After presenting this clearer vision to the team, it was LOF0 passed, allowing us to continue onto LOF1. After feedback and blocking out the major volumes of the level, we believed we wouldn't get Uttarakuru done aswell due to the size of Apara and requirements to make it lof1 passed.With 1 month left on contract, we movedcommitment over to Uttarakuru to get it lof1 passed, we managed to get it passed with the remaining time being enough to get Apara passed aswell.",
+            "para4":"Uttarakuru - Twilight Moksha Forest. Uttarakuru is a west euproe setting, where the theme is death is inevitable. Additionally, this shows the most dreamscape land out of all levels, as its floating. For this we atuned our goal and commitements to ensure we have a interconnected and explorable level, by ensuring the level is compact.. We used the same development progress as aparagodanyia, but at a faster pace since we were more  educated and had a smaller/compact plan for Uttarakuru.. We made our zones for the land, based the themes of the zones on the 5 stages of grief with mine being acceptance. From concept and reference materials I made my zone be this dense forest and graveyard land, similar to dark souls 3's Cathedral.. With the design, I wanted to make the path organic and natural to the environment, have it branch off while they all lead to the centre, showing where to progress to next. I also made the shrine(bonfire) the centre piece of the zone, as its the only shrine that the player will be respawning at giving it significance and allows me to create shortcuts from further in the path back to the shrine, rewarding the player. . To make the zone more interesting in mechanics, . and to nudge the player to feel tense, I put multiple . moving structures that the player will notice either from . a distance or where they stand. This is a foreshadow to the light . puzzle room they'll be challenged by, where the room has 3 doors, . but overtime, pressure plates to open them will reveal themselves by the. room changing."
+        },
         "images":{
             "intro": [
                 "./style/assets/stonework2.PNG",
@@ -26,6 +32,17 @@
                 "./style/assets/stonework2.PNG",
                 "./style/assets/stonework2.PNG"
             ]
+        },
+        "links":{
+            "video1":"https://www.youtube.com/embed/pirSTVZrzjk",
+            "video2":"https://www.youtube.com/embed/KiS5obmQ7jQ",
+            "video3":"https://www.youtube.com/embed/rFjaruZysOI"
+        },
+        "palette":{
+            "main": "#324158",
+            "secondary": "#49578d",
+            "third": "#2d314d",
+            "highlight": "#88afd7"
         }
     },
     {
@@ -38,17 +55,95 @@
         "title": "Code Project 3",
         "description": "Description for code project 3"
     }],
-    "gameproj":[
-        {
-            "id": 4,
-            "title": "Game Project 1",
-            "description": "Description for game project 1"
+    "gameproj":[{
+        "id": 4,
+        "date": "5th August - 25th October 2024",
+        "title": "Samsara - INFINITY27",
+        "description": "Level Designer Unreal 5",
+        "about":{
+            "intro": "Samsara - Level Design",
+            "para": "In this portfolio, I'll be showing my contribution to the game Samsara by INFINITY27. Samsara is designed to be a darksouls like game, set in a Buddhist dream state, where you have to travel the path to reach the afterlife.  On the path, it'll be challenging as different avatars of your mind will interfere with your journey or requesting aid that may affect your afterlife outcome. For the levels I worked on, the goal is to keep it compact for interconnectivity, while being explorable for the player to find new weapons/items. Additionally giving vista sightlines and to be easy navigable. To do this, our team used INFINITY27's pipeline called Level of Fidelity 0-3.  Each stage had a requirement to meet, and only if that requirement is met, we move onto the next stage.  We also used the Level Designer Book (https://book.leveldesignbook.com/) LOF0(short for Level of Fidelity 0) is about the pre-production work and concept of the level, whats the level? What mechanics does it bring?  And does it link to the game pillars? Also its where sketches of the level are made, from partimaps, bubblemaps to detailed sketches.  Addtionally, its also when we whitebox, to visually see the sketch work in level, and to find the scale we intended. LOF1 is about implementation in engine, INFINITY27 had a blockout tool, which made it easier in unifying the metrics to metres,  as the games mechanics has the player be able to climb surfaces in metres. LOF2 is about art implementation, I and cowokers leave this to the art team, meaning I had to document my work for them to understand what I was intending for in each level. LOF1 was the target to reach for each level and we managed to meet that target in 3 months. ",
+            "para2": "Viratdeha - Glacial Garta Lohita & Simha Valley. For this level, I couldn't retrieve work for screenshots, but able to show shots of it in LOF2.. Here is the major points.. Viratdeha is the frozen themed level. This was the first task when joining INFINITY27, the concept and blockout was primarly existing, but needed additional rework and different design approach.. The level was broken into zones, I worked on Glacial Garta Lohita & Simha Valley. . For Glacial Garta, originally, it was a path around a frozen lake to a cave then entering to the blizzard area. Issues I heard were it was too empty and was lacking, due to its size and long distances to travel vertically and horizontally.. Set out a goal to rework that path for a more compact design, with short but intriguing paths, and overall path have vista shots showing the level behind and whats ahead.. Simha Valley, the orignial design was kept, . I simply added the required mechanics but I made a shortcut to help players reach the next zone after moving through the blizzard.",
+            "para3":"Aparagodaniya - Aparādhī Quarry, Golden Shilpin, Lomasha Lush Cave & Kala's End.​Next, we started on Aparagodaniya, which was a desert theme level with ruin and set in a sinkhole. With the concept work already made, I and others had to digest what the vision was for the level.We divided the level into zones, 2 for each 3 of us, and we began using the level designer book, (https://book.leveldesignbook.com/), which greatly helped us in the structure of level designing while using INFINITY27's pipeline. Due to my zone size in the concept and time they estimate it would take, I wanted to add subzones to diverse the area, which was more evident after we put the concept in engine.I decided to make 3 zones in my zone, code name stoneworks, lushcave and town. This was made due to the concept map referencing a masonry with town in the zone I was contributing to. At the end, I felt this was a mistake as it did not align with the core story of this being a dreamworld, not a place were people live and are alive, as new comers to the game will mistakenly see it as suchShown in concepts sectionWe referenced the scale by the major icon the game uses, a tree that is viewable like the tree in Elden ring, and for context, the concept had the landscape spiral down around the tree, but the radius needed to be large to not notice lower quality of textures upclose to the tree, nor have the leaves interfere the path. Because of this, we had more space than the player ever needed, and that spiral prohibeted our goal of interconnection, as we were spread out, not compacted.We came to a conclusion to cut the sprial aspect of the level, and began to reorganise the level, not only to resolve some miscommunications that lead to out of date information, but also for my team to conceptualise a clearer vision for the level that's plausible in engine and connects to the games pillars i.e this is a dream, no one lives where.We created mood boards for each zone and subzones, we set out the overall player experience to be. Parelle to this, we started to white box the level to get the scale we aimed for. We did the same for Uttarakuru, that was much easier since we managed to directly make it more compacted earlier.After presenting this clearer vision to the team, it was LOF0 passed, allowing us to continue onto LOF1. After feedback and blocking out the major volumes of the level, we believed we wouldn't get Uttarakuru done aswell due to the size of Apara and requirements to make it lof1 passed.With 1 month left on contract, we movedcommitment over to Uttarakuru to get it lof1 passed, we managed to get it passed with the remaining time being enough to get Apara passed aswell.",
+            "para4":"Uttarakuru - Twilight Moksha Forest. Uttarakuru is a west euproe setting, where the theme is death is inevitable. Additionally, this shows the most dreamscape land out of all levels, as its floating. For this we atuned our goal and commitements to ensure we have a interconnected and explorable level, by ensuring the level is compact.. We used the same development progress as aparagodanyia, but at a faster pace since we were more  educated and had a smaller/compact plan for Uttarakuru.. We made our zones for the land, based the themes of the zones on the 5 stages of grief with mine being acceptance. From concept and reference materials I made my zone be this dense forest and graveyard land, similar to dark souls 3's Cathedral.. With the design, I wanted to make the path organic and natural to the environment, have it branch off while they all lead to the centre, showing where to progress to next. I also made the shrine(bonfire) the centre piece of the zone, as its the only shrine that the player will be respawning at giving it significance and allows me to create shortcuts from further in the path back to the shrine, rewarding the player. . To make the zone more interesting in mechanics, . and to nudge the player to feel tense, I put multiple . moving structures that the player will notice either from . a distance or where they stand. This is a foreshadow to the light . puzzle room they'll be challenged by, where the room has 3 doors, . but overtime, pressure plates to open them will reveal themselves by the. room changing."
         },
-        {
-            "id": 5,
-            "title": "Game Project 2",
-            "description": "Description for game project 2"
+        "images":{
+            "intro": [
+                "./style/assets/stonework2.PNG",
+                "./style/assets/stonework2.PNG",
+                "./style/assets/stonework2.PNG"
+            ],
+            "slice": [
+                "./style/assets/stonework2.PNG",
+                "./style/assets/stonework2.PNG",
+                "./style/assets/stonework2.PNG"
+            ],
+            "prelan": [
+                "./style/assets/stonework2.PNG",
+                "./style/assets/stonework2.PNG",
+                "./style/assets/stonework2.PNG"
+            ],
+            "optional": [
+                "./style/assets/stonework2.PNG",
+                "./style/assets/stonework2.PNG",
+                "./style/assets/stonework2.PNG"
+            ]
         },
+        "links":{
+            "video1":"https://www.youtube.com/embed/pirSTVZrzjk",
+            "video2":"https://www.youtube.com/embed/KiS5obmQ7jQ",
+            "video3":"https://www.youtube.com/embed/rFjaruZysOI"
+        },
+        "palette":{
+            "main": "#324158",
+            "secondary": "#49578d",
+            "third": "#2d314d",
+            "highlight": "#88afd7"
+        }
+    },
+    {
+        "id": 5,
+        "date": "1th Janurary - 25th May 2023",
+        "title": "Final Year Project - Perilous Pilgrim",
+        "description": "Unreal 5",
+        "about":{
+            "intro": "Perilous Pilgrim",
+            "para": "This project, Perilous Pilgrim, is an exploration fantasy island with a detailed environment.  The player searches an abandoned village named peaceful farms,  with the help of UI interface elements to inform and guide the player.  Peaceful farms is the southern section of the island which holds secret caves  with a key to aid the players objective to reach the mountain peak.",
+            "para2": "The narrative is that the player is a pilgrim on a journey up the mountain to  complete their master's bidding. This mountain is the centre point of the island and  biggest which overlooks the player.",
+            "para3":"The main scope is to highlight my major skillsets such as level design skills  and environment, I also wanted to implement my programming skills: visual scripting and  technical programmer aspects. With that I designed this island to demonstrate these  skills."
+        },
+        "images":{
+            "intro": [
+                "./style/assets/stonework2.PNG",
+                "./style/assets/stonework2.PNG",
+                "./style/assets/stonework2.PNG"
+            ],
+            "slice": [
+                "./style/assets/stonework2.PNG",
+                "./style/assets/stonework2.PNG",
+                "./style/assets/stonework2.PNG"
+            ],
+            "prelan": [
+                "./style/assets/stonework2.PNG",
+                "./style/assets/stonework2.PNG",
+                "./style/assets/stonework2.PNG"
+            ],
+            "optional": [
+                "./style/assets/stonework2.PNG",
+                "./style/assets/stonework2.PNG",
+                "./style/assets/stonework2.PNG"
+            ]
+        },
+        "links":{
+            "video1":"https://www.youtube.com/embed/G7qZZo5pvxA"
+        },
+        "palette":{
+            "main": "#202040",
+            "secondary": "#543864",
+            "third": "#FF6363",
+            "highlight": "#FFBD69"
+        }
+    },
         {
             "id": 6,
             "title": "Game Project 3",
