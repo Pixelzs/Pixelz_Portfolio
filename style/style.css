@@ -215,6 +215,9 @@ main::before{
     opacity: 0;
 }
 
+
+#about p{font-size: 20px;}
+
 #about h1,#about h2, #about p{
     opacity: 0;
     max-height: 0;
@@ -239,9 +242,6 @@ main::before{
     transition: all 0.6s ease;
 }
 
-/* okay need a toggle for container to switch states - none, left - right. speficically for project corner */
-
-/* ---- NORMAL ---- */
 
 /* PROJECT GRID CONTAINER */
 #projGrid{
@@ -276,28 +276,19 @@ main::before{
     width: 100%;
     max-width: 90vw;
     transition: transform 0.4s;
-    
 }
+.card:hover{transform: scale(1.05);}
+.card:active{transform: scale(1.3);}
 
-.card:hover{
-    transform: scale(1.05);
-}
-
-.card:active{
-    transform: scale(1.3);
-}
-
-
-.card .cardImg{
+.card .cardImg, .card img{
     display: block;
     width: 300px;
+    border-radius: 5%;
 }
 
-.card .items{
-    display: none;
-}
+.card .items{display: none;}
 
-/* Button Title */
+/* Card Title */
 .card h1{
     background-color: var(--palMain);
     padding: 1rem;
@@ -307,49 +298,7 @@ main::before{
     transition: all ease 0.6s;
 }
 
-.card img{
-    width:350px;
-    border-radius: 5%;
-}
-
-.card + section{
-    margin: 1rem auto 0 auto;
-    transform: translateY(-40px);
-    opacity: 0;
-    transition: transform 0.4s cubic-bezier(.68,-0.55,.27,1.55), opacity 0.3s;
-    pointer-events: none;
-}
-
-
-.card + section button:hover{
-    background-color: var(--palHighlight);
-    color: var(--palMain);
-    transform: translateY(0);
-    opacity: 1;
-    pointer-events: auto;
-}
-/* ----------LEFT------------- */
-
-.left-mode#home{
-    clip-path: polygon(0% 0%, 75% 100%, 100% 100%, 100% 0%);
-    height: 400px;
-    text-align: right;
-    line-height: 1.4;
-}
-
-.left-mode#home img{
-    width: 100px;
-}
-
-
-/* PROJECT GRID CONTAINER */
-.left-mode#projGrid{
-    grid-template-columns: 2fr 1fr;
-    gap: 2%;
-}
-
-/* THE BUTTON OF THE PROJECT (TO REVEAL MORE AND THEN ANOTHER BUTTON WILL APPEAR TO REDIRECT USER */
-
+/* Card Expansion */
 .card.selected{
     display: flex;
     padding: 2rem;
@@ -360,7 +309,6 @@ main::before{
     margin-top: 10%;
     border: 4px solid var(--palMain);
     gap: 2em;
-
     transform: scale(1.0);
     width: 100%;
     max-width: 60vw;
@@ -369,8 +317,6 @@ main::before{
     scroll-behavior: smooth;
 }
 
-
-/* Button Title */
 .card.selected h1{
     color: var(--palHighlight);
     background-color: var(--palThird);
@@ -380,31 +326,28 @@ main::before{
     font-size: 2rem;
 }
 
-.card.selected .helper{
-    color: var(--palHighlight);
-    background-color: var(--palThird);
-    position: relative;
-    display: inline-flex;
-    transform: translateY(20px);
-    font-size: 2rem;
-    border-radius: 1rem;
-    padding: 1rem;
+
+.card.selected img{width: 500px;}
+.card.selected .cardImg{display: none;}
+.card.selected .items{display: inline;}
+
+
+.card + section{
+    margin: 1rem auto 0 auto;
+    transform: translateY(-40px);
+    opacity: 0;
+    transition: transform 0.4s cubic-bezier(.68,-0.55,.27,1.55), opacity 0.3s;
+    pointer-events: none;
 }
 
-
-.card.selected img{
-    justify-self: right;
-    width: 500px;
+.card + section button:hover{
+    background-color: var(--palHighlight);
+    color: var(--palMain);
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
 }
 
-
-.card.selected .cardImg{
-    display: none;
-}
-
-.card.selected .items{
-    display: inline;
-}
 
 .card.selected + section{
     margin: 1rem;
@@ -419,223 +362,157 @@ main::before{
 }
 
 
-/* BOTH COLUMNS DIRECTED TO BE A GRID ASWELL. (OR MIGHT USE FLEX AND DIRECT IT AS A COLUM) */
+
+/* ----------LEFT------------- */
+
+
+/* PROJECT GRID CONTAINER */
+.left-mode#projGrid{
+    grid-template-columns: 2fr 1fr;
+    gap: 2%;
+}
+
 .left-mode#gameGrid{
     gap: 15rem;
     border-left: 32px solid var(--palThird);
 }
 
 
-/* THE BUTTON OF THE PROJECT (TO REVEAL MORE AND THEN ANOTHER BUTTON WILL APPEAR TO REDIRECT USER */
-
-/* Button Title */
-.left-mode#gameGrid .card h1{
-    background-color: var(--palSecond);
-    font-size: 2rem;
-}
-
-
-.left-mode#gameGrid .card img{
-    width: 25vw;
-}
-
-
-
 /* ------------------- RIGHT  ----------------- */
 
-
-.right-mode#home{
-    clip-path: polygon(0px 0px, 0% 100%, 25% 100%, 100% 0%);
-    overflow: hidden;
-    height: 400px;
-    text-align: left;
-    font-size: small;
-    line-height: 1.4;
-}
-
-.right-mode#home img{
-    width: 100px;
-}
-
-
 /* PROJECT GRID CONTAINER */
-
 .right-mode#projGrid{
     grid-template-columns: 1fr 2fr;
     gap: 2%;
 }
 
-/* BOTH COLUMNS DIRECTED TO BE A GRID ASWELL. (OR MIGHT USE FLEX AND DIRECT IT AS A COLUM) */
 .right-mode#codeGrid{
     gap: 15rem;
     border-right: 32px solid var(--palThird)
 }
 
-.right-mode#codeGrid h2{
-    font-size: 2em;
-}
-/* THE BUTTON OF THE PROJECT (TO REVEAL MORE AND THEN ANOTHER BUTTON WILL APPEAR TO REDIRECT USER */
-.right-mode#codeGrid .card{
-    display: flex;
-    overflow: hidden;
-    border-radius: 2rem;
-    background-color: var(--palMain);
-    color: var(--palHighlight);
-    box-shadow: 0 2px 5px var(--palHighlight);
-    cursor: pointer;
-    width: 25vw;
-    padding: 5%;
-}
-/* Button Title */
-.right-mode#codeGrid .card h1{
-    background-color: var(--palSecond);
-    font-size: 2rem;
-}
-
-.right-mode#codeGrid .card p{
-    display: none;
-}
 
 
-/* @media screen and (max-width: 1048px){
-    .openAb#about p{
-        display:inline;
-        font-size: 1rem;
-    }
-    header nav a, #toggleThemeBtn, #lHeader, #rHeader{
-        padding: 0.5rem 1rem;
-        font-size: 25px;    
-    }
-
-    h1{
-    font-size: 2rem;
-    }
-    h2{
-    font-size: 2rem;
-    }
-
-    .left-mode#home, .right-mode#home{
-        height: 300px;
-    }
-
-    img{
-        width: 250px;
-    }
-}
-
-@media screen and (max-width: 800px){
-    h1{
-    font-size: 1.6rem;
-    }
-    h2{
-    font-size: 1rem;
-    }
-
-    .left-mode#home, .right-mode#home{
-        height: 300px;
-    }
-
-    img{
-        width: 250px;
-    }
-
-    #codeGrid h2, #gameGrid h2{
-        font-size: 1.4rem;
-    }
-
-
-    .right-mode#projGrid{
-    grid-template-columns: 1fr 2fr;
-    gap: 1%;
-}
-}
-
-
-@media screen and (max-width: 500px){
-
-    header nav a, #toggleThemeBtn, #lHeader, #rHeader{
-        padding: 0.25rem 0.5rem;
-        font-size: 20px;    
-    }
-
+@media screen and (max-width: 1048px){
     .container{
         width: 100%;
         max-width: 100vw;
         box-sizing: border-box;
         padding: 0.1rem;
     }
-    #aboutBut{
-        width: 1px;
+
+    #projHighlight{
+        width: 96vw;
     }
-    #about h2{
-        font-size: 0.9rem;
+}
+
+@media screen and (max-width: 800px){
+
+    #about{
+        clip-path: polygon(0 0, 35% 100%, 65% 100%, 100% 0%);
+        padding: 2rem;
+        margin: 0.5rem;
+        z-index: 999;
+        min-height: 350px;
     }
 
-    #about button{
-        font-size: 0.8rem;
-        height: 50px;
-        width: 100px;
-    }
-    .right-mode#home, .left-mode#home{
-        height: 250px;
+    #about img {
+        width: 300px;
     }
 
-    .card{
-        padding: 1%;
-        height: 150px;
+    .openAb#about img{
+        width: 200px;
+    }
+    #about h1,#about h2, #about p{
+        font-size: 20px;
     }
 
-    .card img{
-        width: 150px;
-    }
-
-    #codeGrid h2, #gameGrid h2{
-        font-size: 1.4rem;
-    }
-
-
-    .left-mode#codeGrid .card, .right-mode#codeGrid .card, .left-mode#gameGrid .card, .right-mode#gameGrid .card{
-        width: 100%;
-        max-width: 90vw;
-        height: 400px;
+    .openAb#about h1,.openAb#about h2, .openAb#about p{
+        font-size: 20px;
     }
 
 
-    .left-mode#codeGrid .card img, .right-mode#gameGrid .card img{
-        width: 80vw;
-    }
-    .right-mode#codeGrid .card img, .left-mode#gameGrid .card img{
-        width: 50vw;
+    #projGrid, .left-mode#projGrid, .right-mode#projGrid{
+        grid-template-columns: 1fr 1fr;
+        gap: 1%;
     }
 
-    .left-mode#codeGrid .card p, .right-mode#gameGrid .card p{
-        display: inline;
+    .right-mode#codeGrid, .right-mode#gameGrid, .left-mode#gameGrid, .left-mode#codeGrid{
+        gap: 0px;
+        border: 0px solid var(--palThird)
+    }
+    .right-mode#codeGrid .card, .left-mode#gameGrid .card{
+        width: 25vw;
     }
 
-    .right-mode#codeGrid, .left-mode#gameGrid{
-        gap: 5%;
+    .card.selected{
+        padding: 20px;
+        gap: 20px;
+        max-width: 60vw;
     }
 
-    .right-mode#projHighlight, .left-mode#projHighlight{
-        transform: translateY(-150px);
-        padding-top: 12rem;
+    .card.selected h1{
+        transform: translateY(160px);
+        font-size: 1.5rem;
     }
-    .right-mode#projGrid, .left-mode#projGrid{
+
+    .card.selected img{width: 315px;}
+    .card.selected p{font-size: 15px;}
+
+    .card.selected + section{
+        margin: 1rem;
+        padding: 0.5rem;
+        justify-self: left;
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+        cursor: pointer;
+        background-color: var(--palThird);
+        border-radius: 1rem;
+    }
+
+
+}
+
+
+@media screen and (max-width: 500px){
+
+    header{
+        padding: 8px;
+    }
+
+    #lHeader, #rHeader{
+        width: 25px;
+    }
+
+    header nav a, #toggleThemeBtn, #lHeader, #rHeader{
+        padding: 1px;
+        font-size: 20px;
+
+    }
+
+    #projHighlight{
+        width: 93vw;
+    }
+
+    #projGrid, .left-mode#projGrid, .right-mode#projGrid{
         grid-template-columns: 1fr;
-        gap: 1rem;
-        width: 100%;
-        max-width: 100vw;
-    }
-    .right-mode#gameGrid{
-        order: 1;
-    }
-    .right-mode#codeGrid{
-        order: 2;
-        border-right: 0.5rem solid var(--palThird);
+        gap: 1%;
     }
 
-    .left-mode#gameGrid{
-        border-left: 0.5rem solid var(--palThird);
+    .right-mode#codeGrid, .right-mode#gameGrid, .left-mode#gameGrid, .left-mode#codeGrid{
+        gap: 0px;
+        border: 0px solid var(--palThird)
     }
 
-} */
+
+    .card.selected{
+        padding: 10px;
+        max-width: 80vw;
+    }
+
+    .card.selected h1{
+        font-size: 1rem;
+    }
+
+} 
