@@ -38,10 +38,25 @@ function addClasses(element, classes) {
     element.forEach(elem => classes.forEach(cls => {elem.classList.add(cls)}));
 }
 
+
+function imgtrans(target, newsource){
+    if (target.src !== location.origin + newsource.replace('./', '/')) {
+        target.classList.add('fading');
+        setTimeout(() => {
+            target.src = newsource;
+            target.onload = () => {
+                target.classList.remove('fading');
+            };
+        }, 250); // Half the transition time
+    }
+}
+
+
+
 document.addEventListener('DOMContentLoaded', () =>{
     applyStoredTheme();
 
-
+    
     if(toggleThemeBtn){
         // When the button is clicked, toggle theme and save new value
         toggleThemeBtn.addEventListener('click', () => {
@@ -62,8 +77,7 @@ document.addEventListener('DOMContentLoaded', () =>{
         containerEl,
         projEL
     ];
-    const modeClasses = ["right-mode", "left-mode", "openAb"];
-    
+    const modeClasses = ["right-mode", "left-mode"];
     
     function cardSelectHandler(modeClass){
         return (e) => {
@@ -102,27 +116,30 @@ document.addEventListener('DOMContentLoaded', () =>{
     });
 
     window.addEventListener('scroll', function() {
-        if( window.scrollY < 20)
-        {
-            homeEle.firstElementChild.src ="./style/assets/PixelzLogo.png";
+        const img = homeEle.firstElementChild;
+        let newSrc;
+        if(window.scrollY <= 99) {
+            newSrc = "./style/assets/PixelzLogo.png";
             homeEle.classList.remove('openAb');
             homeEle.style.position = "relative";
             homeEle.parentElement.style.display = "flex";
             homeEle.parentElement.style.justifyContent = "center";
-        }
-        else if (window.scrollY > 20 && window.scrollY < 500) { // adjust 100 to when you want the effect to trigger
-            homeEle.firstElementChild.src ="./style/assets/Eselfie.JPG";
+            imgtrans(img,newSrc);
+        } else if (this.window.scrollY > 99 && this.window.scrollY  <= 601){
+            newSrc = "./style/assets/Eselfie.JPG";
             homeEle.classList.add('openAb');
-            homeEle.style.position = "fixed";
-            homeEle.parentElement.style.display = "block";
-        } 
-        else {
-            homeEle.firstElementChild.src ="./style/assets/PixelzLogo.png";
-            homeEle.classList.remove('openAb');
             homeEle.style.position = "relative";
             homeEle.parentElement.style.display = "flex";
+            homeEle.parentElement.style.justifyContent = "center";
+            imgtrans(img,newSrc);
+            if (this.window.scrollY > 301){
+                homeEle.style.position = "fixed";
+                homeEle.parentElement.style.justifyContent = "flex-start";
+            }
+        }
+        else{
+            homeEle.style.position = "relative";
             homeEle.parentElement.style.justifyContent = "flex-end";
         }
     });
-    
 });

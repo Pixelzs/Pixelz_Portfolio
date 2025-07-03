@@ -50,7 +50,7 @@ body.dark-theme {
 
 header, footer{
     background-color: var(--palMain);
-    padding: 1rem;
+    padding: 2rem;
 }
 
 header{
@@ -58,6 +58,9 @@ header{
     top: 0;
     z-index: 1000;
     width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 5px solid var(--palSecond);
 }
 
 h1{
@@ -72,16 +75,10 @@ h2{
 }
 
 img{
-    width: 20rem;
+    width: 350px;
 }
 
-button{
-    background-color: var(--palMain);
-    border: 4px solid var(--palHighlight);
-    border-radius: 2rem;
-    color: var(--palHighlight);
-    padding: 1rem;
-}
+
 /* ========================== */
 /* WEBPAGE ELEMENTS */
 /* ----- */
@@ -96,17 +93,34 @@ header nav{
     justify-content: right;
     
 }
+header img{
+    /* makes this spefiic nav from a header parent */
+    width: 100px;
+}
 header nav a, #toggleThemeBtn, #lHeader, #rHeader{
     cursor: pointer;
     color: #dbdbdb;
     text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     padding: 0.5rem 0.5rem;
     background-color: var(--palMain);
+    border: 0px;
     border-bottom: 2px solid var(--palHighlight);
     font-size: 1.3rem;
     border-radius: 0;
-    
 }
+
+button{
+    background-color: var(--palMain);
+    border: 4px solid var(--palHighlight);
+    border-radius: 2rem;
+    color: var(--palHighlight);
+    padding: 1rem;
+}
+
+
 header a:hover{
     transition: background 0.3s;
     background-color: var(--palThird);
@@ -157,16 +171,15 @@ main::before{
 
 
 #projHighlight{
-            /* L  polygon(0% 0%, 0% 50%, 0% 100%, 50% 100%, 100% 100%, 100% 5%, 50% 5%);
-               R  polygon(0% 5%, 0% 50%, 0% 100%, 50% 100%, 100% 1000%, 100% 0%, 50% 5%); */
-    clip-path: polygon(0% 0%, 0% 50%, 0% 100%, 50% 100%, 100% 100%, 100% 0%, 50% 0%);
-    padding-top: 0;
-    transform: translateY(0px);
+    margin: 1rem;
+    border-radius: 1rem;
+    background-color: transparent;
+    border: 5px solid var(--palThird);
 }
 
 #home{
     background-color: transparent !important;
-    min-height: 1000px;
+    min-height: 1200px;
     margin-top: 6rem;
     padding-left: 1rem;
     padding-right: 1rem;
@@ -180,7 +193,7 @@ main::before{
 }
 
 #about{
-    transition: all 0.4s ease;
+    transition: all 0.6s ease;
     clip-path: polygon(0 0, 45% 100%, 55% 100%, 100% 0%);
     display: flex;
     flex-direction: column;
@@ -188,24 +201,42 @@ main::before{
     align-items: center;
     padding: 2rem;
     margin: 0.5rem;
+    z-index: 999;
+    min-height: 500px;
 }
 
-#home h2{
-    font-size: 2rem;
+#about img {
+    transition: opacity 0.5s, width 0.5s;
+    opacity: 1;
+    width: 300px;
+}
+#about img.fading {
+    width: 300px;
+    opacity: 0;
 }
 
-#about p{
-    display: none;
+#about h1,#about h2, #about p{
+    opacity: 0;
+    max-height: 0;
+    transition: all 0.6s ease;
+    overflow: hidden;
+}
+
+.openAb#about img{
+    width: 200px;
+    border-radius: 1rem;
+    border: 5px solid var(--palHighlight);
 }
 
 .openAb#about{
     clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 0%);
-    opacity: 1;
+    border-radius: 5%;
 }
 
-.openAb#about p{
-    display:inline;
-    font-size: 1rem;
+.openAb#about h1,.openAb#about h2, .openAb#about p{
+    opacity: 1;
+    max-height: 500px;
+    transition: all 0.6s ease;
 }
 
 /* okay need a toggle for container to switch states - none, left - right. speficically for project corner */
@@ -217,7 +248,6 @@ main::before{
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 5%;
-    transition: all 0.4s ease;
 }
 
 /* BOTH COLUMNS DIRECTED TO BE A GRID ASWELL. (OR MIGHT USE FLEX AND DIRECT IT AS A COLUM) */
@@ -227,7 +257,6 @@ main::before{
     gap: 1rem;
     align-items:center;
 }
-
 
 #codeGrid h2, #gameGrid h2{
     font-size: 2em;
@@ -239,7 +268,7 @@ main::before{
     max-height: 260px;
     padding: 1rem;
     border-radius: 5%;
-    background-color: var(--palMain);
+    background-color: var(--palSecond);
     color: var(--palHighlight);
     box-shadow: 0 2px 5px var(--palHighlight);
     margin-top: 5%;
@@ -261,6 +290,7 @@ main::before{
 
 .card .cardImg{
     display: block;
+    width: 300px;
 }
 
 .card .items{
@@ -269,8 +299,12 @@ main::before{
 
 /* Button Title */
 .card h1{
-    background-color: var(--palSecond);
+    background-color: var(--palMain);
+    padding: 1rem;
+    border-radius: 1rem;
+    font-size: 1.8rem;
     position: absolute;
+    transition: all ease 0.6s;
 }
 
 .card img{
@@ -278,7 +312,7 @@ main::before{
     border-radius: 5%;
 }
 
-.card + button{
+.card + section{
     margin: 1rem auto 0 auto;
     transform: translateY(-40px);
     opacity: 0;
@@ -287,7 +321,7 @@ main::before{
 }
 
 
-.card + button:hover{
+.card + section button:hover{
     background-color: var(--palHighlight);
     color: var(--palMain);
     transform: translateY(0);
@@ -341,9 +375,22 @@ main::before{
     color: var(--palHighlight);
     background-color: var(--palThird);
     justify-self:left;
-    align-self:flex-start;
     position: absolute;
+    transform: translateY(250px);
+    font-size: 2rem;
 }
+
+.card.selected .helper{
+    color: var(--palHighlight);
+    background-color: var(--palThird);
+    position: relative;
+    display: inline-flex;
+    transform: translateY(20px);
+    font-size: 2rem;
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
 
 .card.selected img{
     justify-self: right;
@@ -359,7 +406,7 @@ main::before{
     display: inline;
 }
 
-.card.selected + button{
+.card.selected + section{
     margin: 1rem;
     padding: 2rem;
     justify-self: left;
@@ -367,6 +414,8 @@ main::before{
     opacity: 1;
     pointer-events: auto;
     cursor: pointer;
+    background-color: var(--palThird);
+    border-radius: 1rem;
 }
 
 
@@ -388,12 +437,6 @@ main::before{
 
 .left-mode#gameGrid .card img{
     width: 25vw;
-}
-
-.left-mode#projHighlight{
-    clip-path: polygon(0% 0%, 0% 50%, 0% 100%, 50% 100%, 100% 100%, 100% 5%, 50% 5%);
-    padding-top: 8rem;
-    transform: translateY(-120px);
 }
 
 
@@ -453,12 +496,6 @@ main::before{
     display: none;
 }
 
-
-.right-mode#projHighlight{
-    clip-path: polygon(0% 5%, 0% 50%, 0% 100%, 50% 100%, 100% 1000%, 100% 0%, 50% 5%);
-    padding-top: 8rem;
-    transform: translateY(-120px);
-}
 
 /* @media screen and (max-width: 1048px){
     .openAb#about p{
