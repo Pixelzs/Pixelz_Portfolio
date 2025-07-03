@@ -4,7 +4,7 @@
 /* VARIABLES */
 /* ============================================== */
 :root{
-    --palMain: #202040;
+    --palMain: #1A1A1A;
     --palSecond: #543864;
     --palThird: #FF6363;
     --palHighlight: #FFBD69;
@@ -49,10 +49,15 @@ body.dark-theme {
 }
 
 header, footer{
-    background-color: var(--palSecond);
+    background-color: var(--palMain);
     padding: 1rem;
-    z-index: 2;
-    position: relative;
+}
+
+header{
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    width: 100vw;
 }
 
 h1{
@@ -88,17 +93,17 @@ header nav{
     display: flex;
     /* wrap itms in smll screen */
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: right;
     
 }
 header nav a, #toggleThemeBtn, #lHeader, #rHeader{
     cursor: pointer;
     color: #dbdbdb;
     text-decoration: none;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0.5rem;
     background-color: var(--palMain);
-    border: 2px solid var(--palHighlight);
-    font-size: 2rem;
+    border-bottom: 2px solid var(--palHighlight);
+    font-size: 1.3rem;
     border-radius: 0;
     
 }
@@ -107,14 +112,16 @@ header a:hover{
     background-color: var(--palThird);
 }
 #lHeader{
-    border-top-left-radius: 50%;
-    border-bottom-left-radius: 50%;
+    border-top-left-radius: 25%;
+    border-bottom-left-radius: 25%;
     color: var(--palMain);
+    width: 5rem;
 }
 #rHeader{
-    border-top-right-radius: 50%;
-    border-bottom-right-radius: 50%;
+    border-top-right-radius: 25%;
+    border-bottom-right-radius: 25%;
     color: var(--palMain);
+    width: 5rem;
 }
 /* ============ */
 /* MAIN */
@@ -134,41 +141,53 @@ main::before{
     right: 0;
     bottom: 0;
     z-index: -1;
-    background-image: url(./assets/HighresScreenshot00057.png);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    opacity: 0.3;
-    filter: blur(8px);
+    background-image: url(./assets/backgroundimg1.png);
+    background-size:auto;
+    background-repeat: repeat;
     pointer-events: none;
 }
 
 /* CONTAINER BOX FOR ABOUT AND PROJECTS */
 .container{
     background-color: var(--palSecond);
-    border-left: 5px solid var(--palThird);
     text-align: center;
     margin-top: 2%;
     padding: 1vw;
-    transition: all 0.4s ease;
 }
 
 
 #projHighlight{
-    clip-path: polygon(0% 0%, 0% 50%, 0% 100%, 50% 100%, 100% 100%, 100% 0%, 50% 0%);
             /* L  polygon(0% 0%, 0% 50%, 0% 100%, 50% 100%, 100% 100%, 100% 5%, 50% 5%);
                R  polygon(0% 5%, 0% 50%, 0% 100%, 50% 100%, 100% 1000%, 100% 0%, 50% 5%); */
+    clip-path: polygon(0% 0%, 0% 50%, 0% 100%, 50% 100%, 100% 100%, 100% 0%, 50% 0%);
     padding-top: 0;
     transform: translateY(0px);
 }
 
-
-
-
 #home{
+    background-color: transparent !important;
+    min-height: 1000px;
+    margin-top: 6rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+}
+
+#home > * {
+    background-color: var(--palSecond); /* Or any color you want */
+}
+
+#about{
+    transition: all 0.4s ease;
     clip-path: polygon(0 0, 45% 100%, 55% 100%, 100% 0%);
-    overflow: hidden;
-    line-height: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    margin: 0.5rem;
 }
 
 #home h2{
@@ -178,31 +197,15 @@ main::before{
 #about p{
     display: none;
 }
-#about button{
-    /* background-color: transparent;
-    border-color: transparent;
-    color: transparent; */
-    margin-top: 2.5%;
-    cursor: pointer;
-    width: 200px;
-}
-
-
-.openAb#home{
-    clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 0%);
-    overflow: hidden;
-    opacity: 1;
-}
 
 .openAb#about{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 0%);
+    opacity: 1;
 }
 
 .openAb#about p{
     display:inline;
-    font-size: 2rem;
+    font-size: 1rem;
 }
 
 /* okay need a toggle for container to switch states - none, left - right. speficically for project corner */
@@ -457,7 +460,7 @@ main::before{
     transform: translateY(-120px);
 }
 
-@media screen and (max-width: 1048px){
+/* @media screen and (max-width: 1048px){
     .openAb#about p{
         display:inline;
         font-size: 1rem;
@@ -598,4 +601,4 @@ main::before{
         border-left: 0.5rem solid var(--palThird);
     }
 
-}
+} */

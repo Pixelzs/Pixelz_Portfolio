@@ -3,8 +3,7 @@ const containerEl = document.getElementById("projHighlight");
 const projEL = document.getElementById("projGrid");
 const codeGridEl = document.getElementById("codeGrid");
 const gameGridEl = document.getElementById("gameGrid");
-const homeEle = document.getElementById("home");
-const aboutBut = document.getElementById("aboutBut");
+const homeEle = document.getElementById("about");
 const viewprojBut = document.querySelectorAll(".viewProjectBtn");
 
 
@@ -19,12 +18,12 @@ function applyStoredTheme(){
     toggleThemeBtn.textContent =
         savedTheme === 'dark' ? '☀️ Light' : '🌙 Dark';
     if(savedTheme ==='light'){
-        document.documentElement.style.setProperty("--palMain", "#FFBD69");
+        document.documentElement.style.setProperty("--palMain", "#FFFFFF");
         document.documentElement.style.setProperty("--palSecond", "#FF6363");
         document.documentElement.style.setProperty("--palThird", "#543864");
         document.documentElement.style.setProperty("--palHighlight", "#202040");
     }else{
-        document.documentElement.style.setProperty("--palMain", "#202040");
+        document.documentElement.style.setProperty("--palMain", "#1A1A1A");
         document.documentElement.style.setProperty("--palSecond", "#543864");
         document.documentElement.style.setProperty("--palThird", "#FF6363");
         document.documentElement.style.setProperty("--palHighlight", "#FFBD69");
@@ -64,16 +63,7 @@ document.addEventListener('DOMContentLoaded', () =>{
         projEL
     ];
     const modeClasses = ["right-mode", "left-mode", "openAb"];
-
-
-    if(aboutBut){
-        aboutBut.addEventListener('click', (e) => {
-            e.stopPropagation();
-            removeAllClasses(elements, modeClasses);
-            document.querySelectorAll('.card').forEach(c => c.classList.remove('selected'));
-            addClasses([homeEle,homeEle.firstElementChild], [modeClasses[2]]);
-        });
-    }
+    
     
     function cardSelectHandler(modeClass){
         return (e) => {
@@ -84,8 +74,6 @@ document.addEventListener('DOMContentLoaded', () =>{
             addClasses(elements, [modeClass]);
             e.currentTarget.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-
-            console.log("Hello from codeGrid");
             viewprojBut.forEach(button => {
                 button.addEventListener('click', (e) => {
                     e.stopPropagation();
@@ -113,6 +101,28 @@ document.addEventListener('DOMContentLoaded', () =>{
         document.querySelectorAll('.card').forEach(c => c.classList.remove('selected'));
     });
 
-
+    window.addEventListener('scroll', function() {
+        if( window.scrollY < 20)
+        {
+            homeEle.firstElementChild.src ="./style/assets/PixelzLogo.png";
+            homeEle.classList.remove('openAb');
+            homeEle.style.position = "relative";
+            homeEle.parentElement.style.display = "flex";
+            homeEle.parentElement.style.justifyContent = "center";
+        }
+        else if (window.scrollY > 20 && window.scrollY < 500) { // adjust 100 to when you want the effect to trigger
+            homeEle.firstElementChild.src ="./style/assets/Eselfie.JPG";
+            homeEle.classList.add('openAb');
+            homeEle.style.position = "fixed";
+            homeEle.parentElement.style.display = "block";
+        } 
+        else {
+            homeEle.firstElementChild.src ="./style/assets/PixelzLogo.png";
+            homeEle.classList.remove('openAb');
+            homeEle.style.position = "relative";
+            homeEle.parentElement.style.display = "flex";
+            homeEle.parentElement.style.justifyContent = "flex-end";
+        }
+    });
     
 });
