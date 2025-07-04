@@ -18,15 +18,15 @@ function applyStoredTheme(){
     toggleThemeBtn.textContent =
         savedTheme === 'dark' ? '☀️ Light' : '🌙 Dark';
     if(savedTheme ==='light'){
-        document.documentElement.style.setProperty("--palMain", "#FFFFFF");
-        document.documentElement.style.setProperty("--palSecond", "#FF6363");
-        document.documentElement.style.setProperty("--palThird", "#543864");
-        document.documentElement.style.setProperty("--palHighlight", "#202040");
+        document.documentElement.style.setProperty("--palMain", "#FF9E2C");
+        document.documentElement.style.setProperty("--palSecond", "#FF5E3A");
+        document.documentElement.style.setProperty("--palThird", "#2D0245");
+        document.documentElement.style.setProperty("--palHighlight", "#021a3d");
     }else{
-        document.documentElement.style.setProperty("--palMain", "#1A1A1A");
-        document.documentElement.style.setProperty("--palSecond", "#543864");
-        document.documentElement.style.setProperty("--palThird", "#FF6363");
-        document.documentElement.style.setProperty("--palHighlight", "#FFBD69");
+        document.documentElement.style.setProperty("--palMain", "#021a3d");
+        document.documentElement.style.setProperty("--palSecond", "#2D0245");
+        document.documentElement.style.setProperty("--palThird", "#FF5E3A");
+        document.documentElement.style.setProperty("--palHighlight", "#FF9E2C");
     }
 };
 
@@ -40,7 +40,7 @@ function addClasses(element, classes) {
 
 
 function imgtrans(target, newsource){
-    if (target.src !== location.origin + newsource.replace('./', '/')) {
+    if (!target.src.endsWith(newsource.replace('./', ''))) {
         target.classList.add('fading');
         setTimeout(() => {
             target.src = newsource;
@@ -100,6 +100,15 @@ document.addEventListener('DOMContentLoaded', () =>{
         };
     }
 
+    document.querySelectorAll('.card').forEach(card => {
+        card.addEventListener('touchstart', function() {
+            this.classList.add('touch-hover');
+        });
+        card.addEventListener('touchend', function() {
+            // Remove after a short delay so the effect is visible
+            setTimeout(() => this.classList.remove('touch-hover'), 200);
+        });
+    });
 
     document.querySelectorAll('#codeGrid .card').forEach(card => {
         card.addEventListener('click', cardSelectHandler(modeClasses[1]));
@@ -119,25 +128,42 @@ document.addEventListener('DOMContentLoaded', () =>{
         const img = homeEle.firstElementChild;
         let newSrc;
         if(window.scrollY <= 99) {
-            newSrc = "./style/assets/PixelzLogo.png";
             homeEle.classList.remove('openAb');
             homeEle.style.position = "relative";
             homeEle.parentElement.style.display = "flex";
             homeEle.parentElement.style.justifyContent = "center";
+            homeEle.style.left = "";
+            homeEle.style.right = "";
+            homeEle.style.width = "";
+            newSrc = "./style/assets/PixelzLogo.png";
             imgtrans(img,newSrc);
         } else if (this.window.scrollY > 99 && this.window.scrollY  <= 601){
-            newSrc = "./style/assets/Eselfie.JPG";
             homeEle.classList.add('openAb');
             homeEle.style.position = "relative";
             homeEle.parentElement.style.display = "flex";
             homeEle.parentElement.style.justifyContent = "center";
+            homeEle.style.left = "";
+            homeEle.style.right = "";
+            homeEle.style.width = "";
+            newSrc = "./style/assets/Eselfie.JPG"
             imgtrans(img,newSrc);
             if (this.window.scrollY > 301){
+                const rect = homeEle.getBoundingClientRect();
                 homeEle.style.position = "fixed";
-                homeEle.parentElement.style.justifyContent = "flex-start";
+                homeEle.style.top = rect.top + "px"; // Use absolute position in document
+                homeEle.style.width = rect.width + "px";
+                homeEle.parentElement.style.justifyContent = "flex-end";
+            }
+            else{
+                homeEle.style.top = "";
             }
         }
         else{
+            
+            homeEle.style.top = "";
+            homeEle.style.left = "";
+            homeEle.style.right = "";
+            homeEle.style.width = "";
             homeEle.style.position = "relative";
             homeEle.parentElement.style.justifyContent = "flex-end";
         }
