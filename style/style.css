@@ -33,20 +33,17 @@
     border-color: var(--palThird);
 }
 
+
+
 html, body{
     overflow-x: hidden;
 }
 
-
-
-
 body {
     margin: 0;
     overflow: hidden;
-    background-image: url(./assets/backgroundimg1.png);
     background-size:auto;
     background-repeat: repeat;
-    pointer-events: none;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
@@ -55,9 +52,11 @@ body {
 
 body.light-theme {
     color: #000000;
+    background-image: url(./assets/backgroundimg2.png);
 }
 body.dark-theme {
     color: #f0f0f0;
+    background-image: url(./assets/backgroundimg1.png);
 }
 
 header, footer{
@@ -159,9 +158,6 @@ main{
     position: relative;
 }
 
-body.light-theme main::before {
-    background-image: url(./assets/backgroundimg2.png); /* your light mode image */
-}
 
 
 
@@ -304,6 +300,7 @@ main::before{
     width: 100%;
     max-width: 50vw;
     transition: all 0.4s;
+    z-index: 1;
 }
 .card:hover,
 .card.touch-hover{transform: scale(1.25);}
@@ -567,11 +564,12 @@ main::before{
 
 
 canvas{
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
     display: block;
-    z-index: -1;
+    z-index: -2 !important;
+    pointer-events: none !important;
 }

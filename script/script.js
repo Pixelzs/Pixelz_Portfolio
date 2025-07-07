@@ -112,11 +112,7 @@ document.addEventListener('DOMContentLoaded', () =>{
             addClasses(elements, [modeClass]);
             e.currentTarget.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-            
-        };
-    }
-
-    viewprojBut.forEach(button => {
+            viewprojBut.forEach(button => {
                 button.addEventListener('click', (e) => {
                     e.stopPropagation();
                     const projId = button.getAttribute('dataID');
@@ -125,6 +121,10 @@ document.addEventListener('DOMContentLoaded', () =>{
                     }
                 });
             });
+        };
+    }
+
+    
     
 
     document.querySelectorAll('.card').forEach(card => {
@@ -152,7 +152,10 @@ document.addEventListener('DOMContentLoaded', () =>{
     });
 
 
-
+    document.addEventListener('click', e => {
+    const els = document.elementsFromPoint(e.clientX, e.clientY);
+    console.log('Elements from top to bottom:', els);
+    });
 
 
 
