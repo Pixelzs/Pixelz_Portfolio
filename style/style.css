@@ -37,10 +37,22 @@ html, body{
     overflow-x: hidden;
 }
 
-body{
-    background-color: var(--palMain);
-    max-width: 100vw;
+
+
+
+body {
+    margin: 0;
+    overflow: hidden;
+    background-image: url(./assets/backgroundimg1.png);
+    background-size:auto;
+    background-repeat: repeat;
+    pointer-events: none;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    position: relative;
 }
+
 body.light-theme {
     color: #000000;
 }
@@ -151,6 +163,8 @@ body.light-theme main::before {
     background-image: url(./assets/backgroundimg2.png); /* your light mode image */
 }
 
+
+
 main::before{
     content: "";
     position: absolute;
@@ -158,11 +172,6 @@ main::before{
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: -1;
-    background-image: url(./assets/backgroundimg1.png);
-    background-size:auto;
-    background-repeat: repeat;
-    pointer-events: none;
 }
 
 /* CONTAINER BOX FOR ABOUT AND PROJECTS */
@@ -177,7 +186,6 @@ main::before{
 #projHighlight{
     margin: 1rem;
     border-radius: 1rem;
-    background-color: transparent;
     border: 5px solid var(--palThird);
 }
 
@@ -219,14 +227,17 @@ main::before{
     opacity: 0;
 }
 
-
 #about p{font-size: 20px;}
 
-#about h1,#about h2, #about p{
+#about h2, #about p{
     opacity: 0;
     max-height: 0;
     transition: all 0.6s ease;
     overflow: hidden;
+}
+
+#about h1{
+    transform: translateY(-50px);
 }
 
 .openAb#about img{
@@ -240,12 +251,24 @@ main::before{
     border-radius: 5%;
 }
 
-.openAb#about h1,.openAb#about h2, .openAb#about p{
+.openAb#about h2, .openAb#about p{
     opacity: 1;
     max-height: 500px;
     transition: all 0.6s ease;
 }
 
+.openAb#about h1{
+    opacity: 0;
+    max-height: 0;
+    transition: all 0.6s ease;
+    overflow: hidden;
+}
+
+#linkimg, #gitimg{
+    cursor: pointer;
+    border: none !important;
+    width: 70px !important;
+}
 
 /* PROJECT GRID CONTAINER */
 #projGrid{
@@ -484,8 +507,6 @@ main::before{
         background-color: var(--palThird);
         border-radius: 1rem;
     }
-
-
 }
 
 
@@ -543,3 +564,14 @@ main::before{
         width: 100%;
     }
 } 
+
+
+canvas{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: block;
+    z-index: -1;
+}

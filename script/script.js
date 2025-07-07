@@ -6,6 +6,11 @@ const gameGridEl = document.getElementById("gameGrid");
 const homeEle = document.getElementById("about");
 const viewprojBut = document.querySelectorAll(".viewProjectBtn");
 
+const API_IMG ={ 
+    git: "https://cdn.brandfetch.io/github.com/w/512/h/502/theme/light/symbol?c=1id9l1RAjnD5D03h1Vq",
+    linkIn: "https://cdn.brandfetch.io/linkedin.com/w/512/h/437/symbol?c=1id9l1RAjnD5D03h1Vq"
+}
+
 
 function applyStoredTheme(){
     // Get saved theme or default to "light"
@@ -56,7 +61,26 @@ function imgtrans(target, newsource){
 document.addEventListener('DOMContentLoaded', () =>{
     applyStoredTheme();
 
-    
+    const giticon = document.getElementById("gitimg");
+    const linkicon = document.getElementById("linkimg");
+
+    if(giticon)
+    {
+        giticon.src = API_IMG.git;
+        giticon.addEventListener("click", () => {
+            window.location = "https://github.com/Pixelzs/Pixelz_Portfolio";
+        })
+    }
+    if(linkicon)
+    {
+        linkicon.src = API_IMG.linkIn;
+        linkicon.addEventListener("click", () => {
+            window.location = "https://www.linkedin.com/in/matthew-thompson-855381205/";
+        })
+    }
+
+
+
     if(toggleThemeBtn){
         // When the button is clicked, toggle theme and save new value
         toggleThemeBtn.addEventListener('click', () => {
@@ -88,7 +112,11 @@ document.addEventListener('DOMContentLoaded', () =>{
             addClasses(elements, [modeClass]);
             e.currentTarget.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-            viewprojBut.forEach(button => {
+            
+        };
+    }
+
+    viewprojBut.forEach(button => {
                 button.addEventListener('click', (e) => {
                     e.stopPropagation();
                     const projId = button.getAttribute('dataID');
@@ -97,8 +125,7 @@ document.addEventListener('DOMContentLoaded', () =>{
                     }
                 });
             });
-        };
-    }
+    
 
     document.querySelectorAll('.card').forEach(card => {
         card.addEventListener('touchstart', function() {
@@ -124,8 +151,14 @@ document.addEventListener('DOMContentLoaded', () =>{
         document.querySelectorAll('.card').forEach(c => c.classList.remove('selected'));
     });
 
+
+
+
+
+
+
     window.addEventListener('scroll', function() {
-        const img = homeEle.firstElementChild;
+        const img = document.getElementById("abimg");
         let newSrc;
         if(window.scrollY <= 99) {
             homeEle.classList.remove('openAb');
@@ -147,10 +180,11 @@ document.addEventListener('DOMContentLoaded', () =>{
             homeEle.style.width = "";
             newSrc = "./style/assets/Eselfie.JPG"
             imgtrans(img,newSrc);
-            if (this.window.scrollY > 301){
+            if (this.window.scrollY > 151){
                 const rect = homeEle.getBoundingClientRect();
+                const scrollTop = window.scrollY || window.pageYOffset;
                 homeEle.style.position = "fixed";
-                homeEle.style.top = rect.top + "px"; // Use absolute position in document
+                homeEle.style.top = (rect.top/scrollTop)+ 150 + "px";
                 homeEle.style.width = rect.width + "px";
                 homeEle.parentElement.style.justifyContent = "flex-end";
             }
@@ -158,7 +192,7 @@ document.addEventListener('DOMContentLoaded', () =>{
                 homeEle.style.top = "";
             }
         }
-        else{
+        else if (window.scrollY > 601){
             
             homeEle.style.top = "";
             homeEle.style.left = "";
