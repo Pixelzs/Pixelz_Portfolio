@@ -6,6 +6,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
     <link rel="stylesheet" href="./style/style.css">
     <title>HOME | Pixelz Porfolio</title>
     <script defer src="./script/partiscript.js"></script>
@@ -98,24 +99,24 @@
                     </div>
                     <div> <!--CONTAINER/FOR BUTTON-->
                         <section class = "card"> <!--CARD REAL CONTAINER-->
-                            <h1>-TEMP TITLE-</h1>
+                            <h1>Particles</h1>
                             <img class = "cardImg" src="./style/assets/PixelzLogo.png" alt="" srcset="">
                             <section class = "items"> <!--ITEMS-->
                                 <img src="./style/assets/PixelzLogo.png" alt="" srcset="">
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem, pariatur ad tempore in iure nesciunt omnis explicabo laborum facilis, qui nemo ab illum maxime, laudantium nobis nulla voluptates nisi fugit?</p>
+                                <p>For this project, I wanted to create a nebula background particle that came with challenges and simple code reviews. Goal was to have particles be mutually attracted to form clusters then one supernovas and pushes all apart.</p>
                             </section>
                             <section class = "items">
                                 <img src="./style/assets/PixelzLogo.png" alt="" srcset="">
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem, pariatur ad tempore in iure nesciunt omnis explicabo laborum facilis, qui nemo ab illum maxime, laudantium nobis nulla voluptates nisi fugit?</p>
+                                <p>To ensure particles were visible and none distracting, speed and chances were minimal and to not completely freeze them, there is checks to keep them moving and to orbit the centre of screen, subtle.</p>
                             </section>
                             <section class = "items">
                                 <img src="./style/assets/PixelzLogo.png" alt="" srcset="">
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem, pariatur ad tempore in iure nesciunt omnis explicabo laborum facilis, qui nemo ab illum maxime, laudantium nobis nulla voluptates nisi fugit?</p>
+                                <p>Main problems where optimization, experimenting slows progress, discovering p5.js system and its components, and after this I must ensure my naming convention is more distinct</p>
                             </section>
                         </section>
                         <section class="areaBtn">
-                            <button class="viewProjectBtn" >View Project</button>
-                            <button class="viewProjectBtn" >View GitHub</button>
+                            <button class="viewProjectBtn" dataID="1">View Project</button>
+                            <button class="viewProjectBtn" refID="1">View GitHub</button>
                         </section>
                     </div>
                     <div> <!--CONTAINER/FOR BUTTON-->
@@ -136,7 +137,7 @@
                             </section>
                         </section>
                         <section class="areaBtn">
-                            <button class="viewProjectBtn" >View Project</button>
+                            <button class="viewProjectBtn">View Project</button>
                             <button class="viewProjectBtn" >View GitHub</button>
                         </section>
                     </div>
@@ -161,7 +162,7 @@
                             </section>
                         </section>
                         <section class="areaBtn">
-                            <button class="viewProjectBtn" dataID="1">View Project</button>
+                            <button class="viewProjectBtn" dataID="4">View Project</button>
                         </section>
                     </div>
                     <div> <!--CONTAINER/FOR BUTTON-->
@@ -214,11 +215,5 @@
     <footer>
         <p>&copy; 2025 MJB T. All rights reserved</p>
     </footer>
-
-
-    <nav style="position:relative; z-index:9999; background:rgba(255,255,255,0.8)">
-    <a href="#test">Test Scroll</a>
-    </nav>
-    <div id="test" style="margin-top:150vh;">🛑 Reached Test</div>
 </body>
 </html>

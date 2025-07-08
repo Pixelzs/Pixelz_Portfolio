@@ -572,4 +572,5 @@ canvas{
     display: block;
     z-index: -2 !important;
     pointer-events: none !important;
+    background-color: transparent;
 }

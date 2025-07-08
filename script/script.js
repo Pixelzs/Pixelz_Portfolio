@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () =>{
     {
         giticon.src = API_IMG.git;
         giticon.addEventListener("click", () => {
-            window.location = "https://github.com/Pixelzs/Pixelz_Portfolio";
+            window.location = "https://github.com/Pixelzs";
         })
     }
     if(linkicon)
@@ -118,6 +118,9 @@ document.addEventListener('DOMContentLoaded', () =>{
                     const projId = button.getAttribute('dataID');
                     if(projId){
                         window.location.href = `./project.html?id=${projId}`;
+                    }
+                    if(button.getAttribute("refID")==1){
+                        window.location.href = "https://github.com/Pixelzs/Pixelz_Portfolio";
                     }
                 });
             });
