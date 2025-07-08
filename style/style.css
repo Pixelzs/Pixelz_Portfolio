@@ -47,6 +47,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    z-index: -2;
     position: relative;
 }
 
@@ -158,17 +159,6 @@ main{
     position: relative;
 }
 
-
-
-
-main::before{
-    content: "";
-    position: absolute;
-    top:0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-}
 
 /* CONTAINER BOX FOR ABOUT AND PROJECTS */
 .container{
@@ -570,7 +560,7 @@ canvas{
     width: 100vw;
     height: 100vh;
     display: block;
-    z-index: -2 !important;
+    z-index: -1 !important;
     pointer-events: none !important;
     background-color: transparent;
 }
