@@ -155,14 +155,6 @@ document.addEventListener('DOMContentLoaded', () =>{
     });
 
 
-    document.addEventListener('click', e => {
-    const els = document.elementsFromPoint(e.clientX, e.clientY);
-    console.log('Elements from top to bottom:', els);
-    });
-
-
-
-
     window.addEventListener('scroll', function() {
         const img = document.getElementById("abimg");
         let newSrc;

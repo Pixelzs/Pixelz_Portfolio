@@ -6,14 +6,19 @@
 // Problem, O(N^2) more particles incredibly tanks memory as each particle requests to loop with all particles twice nested
 // Possible solution to grid the area to chunks, mitigate amount of checks if all particles are not in same room 
 
+//Problem using p5 to help with ease of calucatle- but now? some reason particles arent moving as intened
+//they just form a line in the same position like dna strands, looks neat but not what i want. also the
+//line is white and instantly poping
+
 // Second problem - Background. I want to use the current style background however the p5 annoyingly
 // has a null background forcing the graphics to leave ghosting effects
 // found Clear() function and some reason it took very long to find this answer
 
+// Next make mobile more friendly, fix the background and lower particle count
 
 // CONFIG FOR PARTICLES. Amount/Size/Speed/Attract/Repul/Friction/Orbit/Connect/Opactiy/Colour/Twinkle/Burst
 const particonfig = { 
-    particleamount: 150,
+    // particleamount: 150, //Disabled as determined by screen with. Might have this be additional
     minradius:2,
     maxradius:6,
     
@@ -25,14 +30,16 @@ const particonfig = {
     repulsionDistance: 32,
     rippleMulti: 10.0, //Case to prevent clusters pressuring
 
+
     friction: 0.99, // 0 - 1. 1 meaning no friction.
     orbitSpeed: 0.0005, //Value will dimish attraction/repul if too high
 
     connectDistance:100, //Lines
-    baseParticleColour: '138, 43, 226', //Purple
     minOpacity: 0.1,
     maxOpactiy: 0.8,
-    twinkleSpeed: 0.01,
+    defaultParticleColour: "96, 3, 149", //Default colour
+    twinkleSpeed: 0.1,
+
 
     burstChance: 0.0008, //Supernova
     burstDuration: 30,
@@ -42,6 +49,7 @@ const particonfig = {
 
 let particles = [];
 let centreX, centreY; //Orbit centre of screen
+let baseParticleColour;
 
 //Repeated, shortened to function
 function getShortestDistance(obj1, obj2){
@@ -66,7 +74,7 @@ class Particle{
         this.dirx = dirx;
         this.diry = diry;
         this.numCloseNeigh = 0;
-        this.basecolour = particonfig.baseParticleColour;
+        this.basecolour = particonfig.defaultParticleColour;
         this.twinkleEff = random(TWO_PI);
 
         this.isBurst = false;
@@ -86,7 +94,7 @@ class Particle{
     // To Update Position/Wormhole edge/Orbit/ConstantSpeed/Twinkle/BurstTimer/AffectedTimer
     Update(){
         
-
+        
         //Warp webpage
         if(this.x - this.radius > width) this.x = -this.radius;
         else if(this.x + this.radius < 0) this.x = width + this.radius;
@@ -140,16 +148,20 @@ class Particle{
             }
         }
 
+        
+
         this.twinkleEff += particonfig.twinkleSpeed;
         const opacity = particonfig.minOpacity +(particonfig.maxOpactiy - particonfig.minOpacity) * (0.5+0.5*sin(this.twinkleEff));
 
-        this.basecolour = `rgba(${particonfig.baseParticleColour}, ${opacity})`;
+        let finalColour = baseParticleColour || particonfig.defaultParticleColour;
+        this.basecolour = `rgba(${finalColour}, ${opacity})`;
 
         if(!this.isBurst && random() < particonfig.burstChance){
             this.isBurst = true;
             this.burstTimer = particonfig.burstDuration;
         }
         this.draw();
+        
     }
 }
 
@@ -162,11 +174,20 @@ function setup(){
     centreX = width/2;
     centreY = height/2;
     bigbang(); //WHERE BEGINS
+
 }
 
 //P5 to start the system and draw the pparticles
 function draw(){
     clear();
+    const savedTheme = localStorage.getItem('theme') || 'light';
+
+    if(savedTheme ==='light'){
+        baseParticleColour = "199, 89, 6";
+        
+    }else{
+        baseParticleColour = "96, 3, 149";
+    }
     supernova();
     particleConnectAndForces();
     noStroke();
@@ -196,11 +217,22 @@ function windowResized(){
     delaybigbang();
 }
 
+function getParticleCountForScreen(){
+    if(windowWidth<700){
+        return 50;
+    } else if(windowWidth<1024){
+        return 100;
+    } else{
+        return 150;
+    }
+}
+
 //Creates the particles
 function bigbang()
 {
+    let particleamount = getParticleCountForScreen();
     particles = [];
-    for (let i = 0; i < particonfig.particleamount; i++){
+    for (let i = 0; i < particleamount; i++){
         const radius = random(particonfig.minradius, particonfig.maxradius);
         const x = random(width * 0.1, width * 0.9);
         const y = random(height * 0.1, height * 0.9);
@@ -281,7 +313,8 @@ function particleConnectAndForces(){
 
             //Connect Lines
             if(distance < particonfig.connectDistance){
-                stroke(138, 43, 226, (1-(distance/particonfig.connectDistance)) *255);
+                let arrayColour = baseParticleColour.split(",") || particonfig.defaultParticleColour.split(",");
+                stroke(arrayColour[0], arrayColour[1], arrayColour[2], (1-(distance/particonfig.connectDistance)) *255);
                 strokeWeight(0.5);
                 line(obj1.x, obj1.y, obj1.x+dirx, obj1.y+diry);
             }
