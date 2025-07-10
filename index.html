@@ -22,6 +22,7 @@
             <a href="./index.html">Home</a>
             <a href="#about">About</a>
             <a href="#projGrid">Projects</a>
+            <a href="#contacts">Contacts</a>
             <button id="toggleThemeBtn">Toggle Theme</button>
             <p id="rHeader">--</p>
         </nav>
@@ -93,35 +94,36 @@
                             </section>
                         </section>
                         <section class="areaBtn">
-                            <button class="viewProjectBtn" >View Project</button>
-                            <button class="viewProjectBtn" >View GitHub</button>
+                            <button class="viewProjectBtn" refID="1">View GitHub</button>
+                            <button class="viewProjectBtn" refID="3">View JSON Github</button>
                         </section>
                     </div>
                     <div> <!--CONTAINER/FOR BUTTON-->
                         <section class = "card"> <!--CARD REAL CONTAINER-->
                             <h1>Particles</h1>
-                            <img class = "cardImg" src="./style/assets/PixelzLogo.png" alt="" srcset="">
+                            <img class = "cardImg" src="./style/assets/particlesProject1.png" alt="" srcset="">
                             <section class = "items"> <!--ITEMS-->
-                                <img src="./style/assets/PixelzLogo.png" alt="" srcset="">
+                                <img src="./style/assets/particlesProject1.png" alt="" srcset="">
                                 <p>For this project, I wanted to create a nebula background particle that came with challenges and simple code reviews. Goal was to have particles be mutually attracted to form clusters then one supernovas and pushes all apart.</p>
                             </section>
                             <section class = "items">
-                                <img src="./style/assets/PixelzLogo.png" alt="" srcset="">
+                                <img src="./style/assets/particlesProject2.png" alt="" srcset="">
                                 <p>To ensure particles were visible and none distracting, speed and chances were minimal and to not completely freeze them, there is checks to keep them moving and to orbit the centre of screen, subtle.</p>
                             </section>
                             <section class = "items">
-                                <img src="./style/assets/PixelzLogo.png" alt="" srcset="">
+                                <video autoplay>
+                                    <source src="./style/assets/particlesProject3.mp4">
+                                </video>
                                 <p>Main problems where optimization, experimenting slows progress, discovering p5.js system and its components, and after this I must ensure my naming convention is more distinct</p>
                             </section>
                         </section>
                         <section class="areaBtn">
-                            <button class="viewProjectBtn" dataID="1">View Project</button>
-                            <button class="viewProjectBtn" refID="1">View GitHub</button>
+                            <button class="viewProjectBtn" refID="2">View GitHub</button>
                         </section>
                     </div>
                     <div> <!--CONTAINER/FOR BUTTON-->
                         <section class = "card"> <!--CARD REAL CONTAINER-->
-                            <h1>-TEMP TITLE-</h1>
+                            <h1>Either C# or SQL</h1>
                             <img class = "cardImg" src="./style/assets/PixelzLogo.png" alt="" srcset="">
                             <section class = "items"> <!--ITEMS-->
                                 <img src="./style/assets/PixelzLogo.png" alt="" srcset="">
@@ -137,8 +139,7 @@
                             </section>
                         </section>
                         <section class="areaBtn">
-                            <button class="viewProjectBtn">View Project</button>
-                            <button class="viewProjectBtn" >View GitHub</button>
+                            <button class="viewProjectBtn" refID="4">View GitHub</button>
                         </section>
                     </div>
                 </section>
@@ -167,7 +168,7 @@
                     </div>
                     <div> <!--CONTAINER/FOR BUTTON-->
                         <section class = "card"> <!--CARD REAL CONTAINER-->
-                            <h1>-TEMP TITLE-</h1>
+                            <h1>TF2 Personal Project</h1>
                             <img class = "cardImg" src="./style/assets/stonework2.PNG" alt="" srcset="">
                             <section class = "items"> <!--ITEMS-->
                                 <img src="./style/assets/stonework2.PNG" alt="" srcset="">
@@ -188,7 +189,7 @@
                     </div>
                     <div> <!--CONTAINER/FOR BUTTON-->
                         <section class = "card"> <!--CARD REAL CONTAINER-->
-                            <h1>-TEMP TITLE-</h1>
+                            <h1>Samsara Bootcamp</h1>
                             <img class = "cardImg" src="./style/assets/stonework2.PNG" alt="" srcset="">
                             <section class = "items"> <!--ITEMS-->
                                 <img src="./style/assets/stonework2.PNG" alt="" srcset="">
@@ -209,6 +210,15 @@
                     </div>
                 </section>
             </section>
+        </section>
+        <section class = "container" id = "contacts">
+            <h2>Contact</h2>
+            <form action = "#confirmation" id="contact_form">
+                <input type = "text" id="username" placeholder="Enter Name" name="name" required/>
+                <input type="email" id="email" placeholder="Enter Email" name="email" required/>
+                <textarea id="message" name="message" placeholder="Enter Message" rows="5" required></textarea>
+                <input type="submit" value="Submit"/>
+            </form>
         </section>
     </main>
 

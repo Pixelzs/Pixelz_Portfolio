@@ -112,23 +112,32 @@ document.addEventListener('DOMContentLoaded', () =>{
             addClasses(elements, [modeClass]);
             e.currentTarget.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-            viewprojBut.forEach(button => {
-                button.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    const projId = button.getAttribute('dataID');
-                    if(projId){
-                        window.location.href = `./project.html?id=${projId}`;
-                    }
-                    if(button.getAttribute("refID")==1){
-                        window.location.href = "https://github.com/Pixelzs/Pixelz_Portfolio";
-                    }
-                });
-            });
+            
         };
     }
 
     
-    
+    viewprojBut.forEach(button => {
+        button.addEventListener('click', (e) => {
+            e.stopPropagation();
+            let projId = button.getAttribute('dataID');
+            let refId = button.getAttribute('refID');
+            console.log(refId);
+            
+            if(projId){
+                window.location.href = `./project.html?id=${projId}`;
+            }
+
+            switch(refId){
+                case "1": window.location.href = "https://github.com/Pixelzs/Pixelz_Portfolio"; break; //Portfolio
+                case "2": window.location.href = "https://github.com/Pixelzs/ParticleScript"; break; //Particle
+                case "3": window.location.href = "https://github.com/Pixelzs/PortfolioJson"; break; //JSON
+                case "4": window.location.href = "https://github.com/Pixelzs/ParticleScript"; break; //C#
+                case "5": window.location.href = "https://github.com/Pixelzs/project_sql"; break; //SQL
+            }
+
+        });
+    });
 
     document.querySelectorAll('.card').forEach(card => {
         card.addEventListener('touchstart', function() {
