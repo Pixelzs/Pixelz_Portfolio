@@ -177,13 +177,13 @@ main{
 
 #home{
     background-color: transparent !important;
-    min-height: 1200px;
+    min-height: 1400px;
     margin-top: 6rem;
     padding-left: 8rem;
     padding-right: 8rem;
     display: flex;
     flex-direction: column;
-    justify-content:center;
+    justify-content: flex-start;
 }
 
 #home > * {
@@ -191,6 +191,8 @@ main{
 }
 
 #about{
+    position: relative;
+    top: 250px;
     transition: all 0.6s ease;
     clip-path: polygon(0 0, 45% 100%, 55% 100%, 100% 0%);
     display: flex;
@@ -254,6 +256,18 @@ main{
     cursor: pointer;
     border: none !important;
     width: 70px !important;
+}
+
+
+#skills, #programs{
+    padding: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#skills h1{
+    flex-direction: column;
 }
 
 /* PROJECT GRID CONTAINER */
@@ -488,8 +502,13 @@ form#contact_form input[type="submit"]{
     .openAb#about img{
         width: 200px;
     }
-    #about h1,#about h2, #about p{
-        font-size: 20px;
+    
+    .container{
+        font-size: 30px;
+    }
+
+    #about h1{
+        transform: translateY(-20px);
     }
 
     .openAb#about h1,.openAb#about h2, .openAb#about p{
@@ -523,7 +542,7 @@ form#contact_form input[type="submit"]{
         font-size: 1.5rem;
     }
 
-    .card.selected img{width: 315px;}
+    .card.selected img, .card.selected video{width: 315px; height: 335px;}
     .card.selected p{font-size: 15px;}
 
     .card.selected + section{
@@ -547,13 +566,16 @@ form#contact_form input[type="submit"]{
     }
 
     #lHeader, #rHeader{
-        width: 25px;
+        width: 32px;
     }
 
     header nav a, #toggleThemeBtn, #lHeader, #rHeader{
         padding: 1px;
         font-size: 20px;
+    }
 
+    header nav{
+        flex-wrap: nowrap;
     }
 
     #home{
@@ -587,9 +609,24 @@ form#contact_form input[type="submit"]{
         max-width: 80vw;
     }
 
-    .card.selected h1{
+    .card.selected .cardImg, .card.selected img{
+        width: 320px;
+        height: 240px;
+    }
+
+    .card.selected video{
+        width: 320px;
+        height: 240px;
+    }
+
+    .card.selected h1, #skills, #programs{
         font-size: 1rem;
     }
+
+    #skills, #programs{
+        flex-direction: column;
+    }
+
     .right-mode#codeGrid .card, .left-mode#gameGrid .card{
         width: 100%;
     }

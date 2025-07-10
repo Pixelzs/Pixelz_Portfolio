@@ -134,6 +134,11 @@ document.addEventListener('DOMContentLoaded', () =>{
                 case "3": window.location.href = "https://github.com/Pixelzs/PortfolioJson"; break; //JSON
                 case "4": window.location.href = "https://github.com/Pixelzs/ParticleScript"; break; //C#
                 case "5": window.location.href = "https://github.com/Pixelzs/project_sql"; break; //SQL
+                case "6": window.location.href = "https://pixelzs.github.io/Pixelz_Portfolio/"; break; //C# UPDATE IT TODO
+                case "7": window.location.href = "https://pixelzs.wixsite.com/pixelz-portfolio/portfolio/samsara-1"; break; //GAME -- WIX SAM
+                case "8": window.location.href = "https://pixelzs.github.io/Pixelz_Portfolio/"; break; //Tf2 -- WIX
+                case "9": window.location.href = "https://pixelzs.wixsite.com/pixelz-portfolio/portfolio/samsara"; break; //Boot sam -- WIX
+                case "10": window.location.href = "https://pixelzs.wixsite.com/pixelz-portfolio/portfolio/perliouspilgrim"; break; //FinalPro -- WIX
             }
 
         });
@@ -167,45 +172,48 @@ document.addEventListener('DOMContentLoaded', () =>{
     window.addEventListener('scroll', function() {
         const img = document.getElementById("abimg");
         let newSrc;
-        if(window.scrollY <= 99) {
+        const currentScrollY = window.scrollY;
+        console.log(currentScrollY);
+        if(currentScrollY <= 200) {
+            //DEAFULT START
             homeEle.classList.remove('openAb');
             homeEle.style.position = "relative";
-            homeEle.parentElement.style.display = "flex";
-            homeEle.parentElement.style.justifyContent = "center";
-            homeEle.style.left = "";
-            homeEle.style.right = "";
+            
+            homeEle.style.top = "250px";
             homeEle.style.width = "";
+
             newSrc = "./style/assets/PixelzLogo.png";
             imgtrans(img,newSrc);
-        } else if (this.window.scrollY > 99 && this.window.scrollY  <= 601){
+        } else if (currentScrollY > 200 && this.window.scrollY  <= 599){
+
+            console.log("Opening About");
             homeEle.classList.add('openAb');
-            homeEle.style.position = "relative";
-            homeEle.parentElement.style.display = "flex";
-            homeEle.parentElement.style.justifyContent = "center";
-            homeEle.style.left = "";
-            homeEle.style.right = "";
-            homeEle.style.width = "";
-            newSrc = "./style/assets/Eselfie.JPG"
-            imgtrans(img,newSrc);
-            if (this.window.scrollY > 151){
-                const rect = homeEle.getBoundingClientRect();
-                const scrollTop = window.scrollY || window.pageYOffset;
+            
+            const rect = homeEle.getBoundingClientRect();
+
+            if (currentScrollY > 220){
+                console.log("Moving with window");
                 homeEle.style.position = "fixed";
-                homeEle.style.top = (rect.top/scrollTop)+ 150 + "px";
+                homeEle.parentElement.style.justifyContent = "flex-start";
+                homeEle.style.top = "150px";
                 homeEle.style.width = rect.width + "px";
-                homeEle.parentElement.style.justifyContent = "flex-end";
+
+
             }
             else{
-                homeEle.style.top = "";
+                console.log("Stationed");
+                homeEle.style.position = "relative";
             }
+
+            newSrc = "./style/assets/Eselfie.JPG"
+            imgtrans(img,newSrc);
         }
-        else if (window.scrollY > 601){
+        else if (currentScrollY > 599){
             
-            homeEle.style.top = "";
-            homeEle.style.left = "";
-            homeEle.style.right = "";
+            console.log("Reached final destination");
             homeEle.style.width = "";
             homeEle.style.position = "relative";
+            homeEle.style.top = "0px";
             homeEle.parentElement.style.justifyContent = "flex-end";
         }
     });
