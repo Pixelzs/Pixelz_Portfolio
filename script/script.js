@@ -116,6 +116,29 @@ document.addEventListener('DOMContentLoaded', () =>{
         };
     }
 
+    document.querySelectorAll('.card').forEach(card => {
+        card.addEventListener('touchstart', function() {
+            this.classList.add('touch-hover');
+        });
+        card.addEventListener('touchend', function() {
+            // Remove after a short delay so the effect is visible
+            setTimeout(() => this.classList.remove('touch-hover'), 200);
+        });
+    });
+
+    document.querySelectorAll('#codeGrid .card').forEach(card => {
+        card.addEventListener('click', cardSelectHandler(modeClasses[1]));
+    });
+
+
+    document.querySelectorAll('#gameGrid .card').forEach(card => {
+        card.addEventListener('click', cardSelectHandler(modeClasses[0]));
+    });
+
+    document.body.addEventListener('click', () => {
+        removeAllClasses(elements, modeClasses);
+        document.querySelectorAll('.card').forEach(c => c.classList.remove('selected'));
+    });
     
     viewprojBut.forEach(button => {
         button.addEventListener('click', (e) => {
@@ -144,29 +167,7 @@ document.addEventListener('DOMContentLoaded', () =>{
         });
     });
 
-    document.querySelectorAll('.card').forEach(card => {
-        card.addEventListener('touchstart', function() {
-            this.classList.add('touch-hover');
-        });
-        card.addEventListener('touchend', function() {
-            // Remove after a short delay so the effect is visible
-            setTimeout(() => this.classList.remove('touch-hover'), 200);
-        });
-    });
-
-    document.querySelectorAll('#codeGrid .card').forEach(card => {
-        card.addEventListener('click', cardSelectHandler(modeClasses[1]));
-    });
-
-
-    document.querySelectorAll('#gameGrid .card').forEach(card => {
-        card.addEventListener('click', cardSelectHandler(modeClasses[0]));
-    });
-
-    document.body.addEventListener('click', () => {
-        removeAllClasses(elements, modeClasses);
-        document.querySelectorAll('.card').forEach(c => c.classList.remove('selected'));
-    });
+    
 
 
     window.addEventListener('scroll', function() {
