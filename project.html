@@ -6,135 +6,135 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
     <link rel="stylesheet" href="./style/style.css">
-    <title>HOME | Pixelz Porfolio</title>
+    <title>Project | Pixelz Porfolio</title>
+    <script defer src="./script/partiscript.js"></script>
     <script defer src="./script/script.js"></script>
     <script defer src="./script/projdata.js"></script>
 </head>
 <body>
+    <canvas id="particleCanvas"></canvas>
     <!-- HEADER -->
     <header> 
+        <img src="./style/assets/PixelzLogo.png" alt="Image of Logo" srcset="">
         <nav>
             <p id="lHeader">--</p>
             <a href="./index.html">Home</a>
-            <a href="./index.html">About</a>
-            <a href="./index.html">Projects</a>
+            <a href="#about">About</a>
+            <a href="#projGrid">Projects</a>
+            <a href="#contacts">Contacts</a>
             <button id="toggleThemeBtn">Toggle Theme</button>
             <p id="rHeader">--</p>
         </nav>
     </header>
     <!-- MAIN PAGE -->
     <main>
-        <!-- HOME SECTION -->
-        <section class = "container" id="top">
-            <h2 id="projDate">#th Month - #th Month 20##</h2>
-            <h1 id="projTitle">PLACEHOLDER</h1>
-            <h2 id="projDesc">Like what x and what role</p>
+        <!-- About SECTION -->
+        <section class = "container" id="projAbout">
+            <h2>#th Month - #th Month 20##</h2>
+            <h1>PLACEHOLD Title</h1>
+            <h2>Descr</h2>
+            <section id="projPara1">
+                <p>ABOUT</p>
+            </section>
         </section>
-        <!-- PROJECTS I NEED TO ID EACH IMG ELEMENT TO USE THE ONE FROM JSON-->
+        <section class = "container" id="disclaimer">
+            <h1>IMPORTANT</h1>
+            <p>Page is underconstruction via use of JSON and API.
+                Credits - I take full credit to the design and construction of the level.
+                mechanics/assets/functionality obtained by Valve Team Fortess 2 game and Hammer Source Engine.
+                QA comes from directly TF2 Community TF2 Map Makers https://tf2maps.net/home/ and their discord 
+                hosting QAs for developing maps.
+            </p>
+        </section>
         <section class = "container">
-            <section id = "galleryMain">
-                <section class = "galleryItems">
-                    <section class = imgItem>
-                        <h1>Img1</h1>
-                        <img src="./style/assets/stonework2.PNG" alt="" srcset=""> 
-                    </section>
-                    <section class = imgItem>
-                        <h1>Img2</h1>
-                        <img src="./style/assets/stonework2.PNG" alt="" srcset="">
-                    </section>
-                    <section class = imgItem>
-                        <h1>Img3</h1>
-                        <img src="./style/assets/stonework2.PNG" alt="" srcset="">
-                    </section>
+            <section class="gal" id="mainGal">
+                <section class = imgItem>
+                    <h1>Img1</h1>
+                    <img src="./style/assets/PixelzLogo.png" alt="" srcset=""> 
+                </section>
+                <section class = imgItem>
+                    <h1>Img2</h1>
+                    <img src="./style/assets/PixelzLogo.png" alt="" srcset=""> 
+                </section>
+                <section class = imgItem>
+                    <h1>Img3</h1>
+                    <img src="./style/assets/PixelzLogo.png" alt="" srcset=""> 
+                </section>
+                <section class = imgItem>
+                    <h1>Img4</h1>
+                    <img src="./style/assets/PixelzLogo.png" alt="" srcset=""> 
                 </section>
             </section>
         </section>
-        <section class = "container">
-            <h1>IMPORTANT</h1>
-            <p>All images are placeholders and will be replaced with actual project images in the future.</p>
-            <p>Feel free to explore the project details and descriptions.</p>
-        </section>
-        <section class = "container">
-            <section id="projAbout">
-                <h1>About the Project</h1>
-            </section>
         </section>
         <section class ="container">
-            <section id="projSlice">
-                <h1>The Project</h1>
-                <h1>GamePlay Video</h1>
-                
-
-                <img src="./style/assets/stonework2.PNG" alt="" srcset="">
-                <img src="./style/assets/stonework2.PNG" alt="" srcset="">
-                <img src="./style/assets/stonework2.PNG" alt="" srcset="">
+            <section id ="projSlice">
+                <h1>placeholder</h1>
+                <h2>Videos - Game / DevVlog</h2>
+            </section>
         </section>
         <section class = "container">
-            <section id = "preplan">
-                <section class="galleryItems">
-                    <section class="imgItem">
-                        <h1>Preplan 1</h1>
-                        <img src="./style/assets/stonework2.PNG" alt="" srcset="">
-                    </section>
-                    <section class="imgItem">
-                        <h1>Preplan 2</h1>
-                        <img src="./style/assets/stonework2.PNG" alt="" srcset="">
-                    </section>
-                    <section class="imgItem">
-                        <h1>Preplan 3</h1>
-                        <img src="./style/assets/stonework2.PNG" alt="" srcset="">
-                    </section>
+            <h1>Pre - Production</h1>
+            <section class="gal" id="preGal">
+                <section class = imgItem>
+                    <h2>Img1</h2>
+                    <img src="./style/assets/PixelzLogo.png" alt="" srcset=""> 
+                </section>
+                <section class = imgItem>
+                    <h2>Img2</h2>
+                    <img src="./style/assets/PixelzLogo.png" alt="" srcset=""> 
+                </section>
+                <section class = imgItem>
+                    <h2>Img3</h2>
+                    <img src="./style/assets/PixelzLogo.png" alt="" srcset=""> 
+                </section>
+                <section class = imgItem>
+                    <h2>Img4</h2>
+                    <img src="./style/assets/PixelzLogo.png" alt="" srcset=""> 
                 </section>
             </section>
         </section>
         <section class = "container">
-            <section id = "additional">
-                <section class="galleryItems">
-                    <section class="imgItem">
-                        <h1>Preplan 1</h1>
-                        <img src="./style/assets/stonework2.PNG" alt="" srcset="">
-                    </section>
-                    <section class="imgItem">
-                        <h1>Preplan 2</h1>
-                        <img src="./style/assets/stonework2.PNG" alt="" srcset="">
-                    </section>
-                    <section class="imgItem">
-                        <h1>Preplan 3</h1>
-                        <img src="./style/assets/stonework2.PNG" alt="" srcset="">
-                    </section>
-                    <section class="imgItem">
-                        <h1>Preplan 3</h1>
-                        <img src="./style/assets/stonework2.PNG" alt="" srcset="">
-                    </section>
-                    <section class="imgItem">
-                        <h1>Preplan 3</h1>
-                        <img src="./style/assets/stonework2.PNG" alt="" srcset="">
-                    </section>
-                    <section class="imgItem">
-                        <h1>Preplan 3</h1>
-                        <img src="./style/assets/stonework2.PNG" alt="" srcset="">
-                    </section>
-                    <section class="imgItem">
-                        <h1>Preplan 3</h1>
-                        <img src="./style/assets/stonework2.PNG" alt="" srcset="">
-                    </section>
-                    <section class="imgItem">
-                        <h1>Preplan 3</h1>
-                        <img src="./style/assets/stonework2.PNG" alt="" srcset="">
-                    </section>
-                    <section class="imgItem">
-                        <h1>Preplan 3</h1>
-                        <img src="./style/assets/stonework2.PNG" alt="" srcset="">
-                    </section>
-                    <section class="imgItem">
-                        <h1>Preplan 3</h1>
-                        <img src="./style/assets/stonework2.PNG" alt="" srcset="">
-                    </section>
-                    <section class="imgItem">
-                        <h1>Preplan 3</h1>
-                        <img src="./style/assets/stonework2.PNG" alt="" srcset="">
-                    </section>
+            <h1>Production</h1>
+            <section class="gal" id="devGal">
+                <section class = imgItem>
+                    <h2>Img1</h2>
+                    <img src="./style/assets/PixelzLogo.png" alt="" srcset=""> 
+                </section>
+                <section class = imgItem>
+                    <h2>Img2</h2>
+                    <img src="./style/assets/PixelzLogo.png" alt="" srcset=""> 
+                </section>
+                <section class = imgItem>
+                    <h2>Img3</h2>
+                    <img src="./style/assets/PixelzLogo.png" alt="" srcset=""> 
+                </section>
+                <section class = imgItem>
+                    <h2>Img4</h2>
+                    <img src="./style/assets/PixelzLogo.png" alt="" srcset=""> 
+                </section>
+            </section>
+        </section>
+        <section class = "container">
+            <h1>Latest Version</h1>
+            <section class="gal" id="beautyGal">
+                <section class = imgItem>
+                    <h2>Img1</h2>
+                    <img src="./style/assets/PixelzLogo.png" alt="" srcset=""> 
+                </section>
+                <section class = imgItem>
+                    <h2>Img2</h2>
+                    <img src="./style/assets/PixelzLogo.png" alt="" srcset=""> 
+                </section>
+                <section class = imgItem>
+                    <h2>Img3</h2>
+                    <img src="./style/assets/PixelzLogo.png" alt="" srcset=""> 
+                </section>
+                <section class = imgItem>
+                    <h2>Img4</h2>
+                    <img src="./style/assets/PixelzLogo.png" alt="" srcset=""> 
                 </section>
             </section>
         </section>

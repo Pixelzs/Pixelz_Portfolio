@@ -241,7 +241,7 @@ main{
 
 .openAb#about h2, .openAb#about p{
     opacity: 1;
-    max-height: 500px;
+    max-height: 600px;
     transition: all 0.6s ease;
 }
 
@@ -252,10 +252,10 @@ main{
     overflow: hidden;
 }
 
-#linkimg, #gitimg{
+#about #linkimg, #about #gitimg{
     cursor: pointer;
-    border: none !important;
-    width: 70px !important;
+    border: none;
+    width: 70px;
 }
 
 
@@ -436,16 +436,21 @@ main{
 }
 
 
-#contact{
+#contacts{
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 1rem;
     padding: 1rem;
 }
 
+#contacts h2{
+    font-size: 1.5rem;
+}
+
 #contact_form{
     display: inline-flex;
-    width: 60vw;
+    width: 80%;
     flex-direction: column;
     gap: 1rem;
     padding: 0.5rem;
@@ -561,6 +566,8 @@ form#contact_form input[type="submit"]{
 
 @media screen and (max-width: 500px){
 
+    
+
     header{
         padding: 8px;
     }
@@ -569,9 +576,13 @@ form#contact_form input[type="submit"]{
         width: 32px;
     }
 
+    header img{
+        width: 75px;
+    }
+
     header nav a, #toggleThemeBtn, #lHeader, #rHeader{
-        padding: 1px;
-        font-size: 20px;
+        padding: 1vw;
+        font-size: 15px;
     }
 
     header nav{
@@ -582,6 +593,16 @@ form#contact_form input[type="submit"]{
         padding-left: 1rem;
         padding-right: 1rem;
     }
+
+
+    #about img{
+        width: 220px;
+    }
+
+    #about #gitimg,#about #linkimg{
+        width: 50px;
+    }
+
     #projHighlight{
         width: 93vw;
     }
@@ -602,6 +623,10 @@ form#contact_form input[type="submit"]{
         max-width: 80vw;
     }
 
+    .card h1, #skills h2, #programs h2{
+        font-size: 1.5rem;
+    }
+
     .card.selected{
         height: 350px;
         max-height: 350px;
@@ -619,8 +644,8 @@ form#contact_form input[type="submit"]{
         height: 240px;
     }
 
-    .card.selected h1, #skills, #programs{
-        font-size: 1rem;
+    .card.selected h1{
+        font-size: 1.5rem;
     }
 
     #skills, #programs{
@@ -643,4 +668,29 @@ canvas{
     z-index: -1 !important;
     pointer-events: none !important;
     background-color: transparent;
+}
+
+
+#projAbout{
+    margin-top: 300px;
+}
+
+.gal{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1500px;
+    justify-content: space-between;
+    padding: 3rem;
+    padding-left: 15%;
+    padding-right: 15%;
+    gap: 1rem;
+}
+
+#projPara1 p{
+    margin: 5rem;
+    font-size: 2rem;
+}
+
+#disclaimer p{
+    font-size: 2rem;
 }
